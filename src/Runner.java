@@ -20,11 +20,14 @@ public class Runner {
                 try {
                     switch (button) {
                         case UP:
+                            System.out.println("up case");
                             lcd.setText("Nice");
                         case SELECT:
+                            System.out.println("select case");
                             lcd.setText(IP.getHostAddress());
                             break;
                         default:
+                            System.out.println("default case");
                             lcd.setText("Huh, that isnt right");
                             break;
                     }
