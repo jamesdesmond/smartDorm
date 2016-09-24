@@ -22,6 +22,7 @@ public class Runner {
                             lcd.clear();
                             System.out.println("up case");
                             lcd.setText("Nice");
+                            break;
                         case SELECT:
                             lcd.clear();
                             System.out.println("select case");
@@ -38,6 +39,7 @@ public class Runner {
                 }
             }
         });
+        while(true){};
         System.out.println("Press enter to quit!");
         System.in.read();
         lcd.stop();
