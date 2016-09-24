@@ -17,17 +17,18 @@ public class Runner {
         observer.addButtonListener(new ButtonListener() {
             @Override
             public void onButtonPressed(Button button) {
-                switch (button) {
-                    case SELECT:
-                        try {
+                try {
+                    switch (button) {
+                        case UP:
+                            lcd.setText("Nice");
+                        case SELECT:
                             lcd.setText(IP.getHostAddress());
-                        } catch (IOException e) {
-                            System.out.println("ERROR 01");
-                            e.printStackTrace();
-                        }
-                        break;
-                    default:
-                        break;
+                            break;
+                        default:
+                            break;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         });
