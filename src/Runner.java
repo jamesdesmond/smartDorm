@@ -25,7 +25,7 @@ public class Runner {
                         case SELECT:
                             lcd.clear();
                             System.out.println("select case");
-                            lcd.setText(String.valueOf(Util.getLocalAddress()));
+                            lcd.setText(String.valueOf("IP Addr:\n" + Util.getLocalAddress().toString().substring(1)));
                             break;
                         default:
                             lcd.clear();
