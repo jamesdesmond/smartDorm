@@ -25,6 +25,7 @@ public class Runner {
                             lcd.setText(IP.getHostAddress());
                             break;
                         default:
+                            lcd.setText("Huh, that isnt right");
                             break;
                     }
                 } catch (IOException e) {
