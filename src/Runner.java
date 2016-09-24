@@ -39,10 +39,10 @@ public class Runner {
                 }
             }
         });
-        while(true){};
         System.out.println("Press enter to quit!");
         System.in.read();
         lcd.stop();
+        while(true){}
         }
     private void handleException(IOException e) {
         System.out.println("Problem connecting to lcd");
