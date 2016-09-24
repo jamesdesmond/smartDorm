@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="smartDorm:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/smartDorm_jar</output-path>
+    <root id="archive" name="smartDorm.jar">
+      <element id="module-output" name="smartDorm" />
+      <element id="extracted-dir" path="$USER_HOME$/Google Drive/lcd.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

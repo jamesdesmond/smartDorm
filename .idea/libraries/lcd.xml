@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="lcd">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Google Drive/lcd.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
