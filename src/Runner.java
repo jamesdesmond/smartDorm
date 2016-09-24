@@ -9,7 +9,6 @@ import java.net.InetAddress;
 
 public class Runner {
     public static void main(String Args[]) throws IOException {
-        InetAddress IP = InetAddress.getLocalHost();
         final ILCD lcd = new RealLCD();
         lcd.setBacklight(Color.RED);
         lcd.setText("Hello World");
@@ -20,13 +19,16 @@ public class Runner {
                 try {
                     switch (button) {
                         case UP:
+                            lcd.clear();
                             System.out.println("up case");
                             lcd.setText("Nice");
                         case SELECT:
+                            lcd.clear();
                             System.out.println("select case");
-                            lcd.setText(IP.getHostAddress());
+                            lcd.setText(String.valueOf(Util.getLocalAddress()));
                             break;
                         default:
+                            lcd.clear();
                             System.out.println("default case");
                             lcd.setText("Huh, that isnt right");
                             break;
