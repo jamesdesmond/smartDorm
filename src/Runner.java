@@ -36,6 +36,9 @@ public class Runner {
                 }
             }
         });
+        System.out.println("Press enter to quit!");
+        System.in.read();
+        lcd.stop();
     }
     private void handleException(IOException e) {
         System.out.println("Problem connecting to lcd");
