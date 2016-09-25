@@ -11,7 +11,7 @@ public class Runner {
     public static void main(String Args[]) throws IOException {
         final ILCD lcd = new RealLCD();
         lcd.setBacklight(Color.RED);
-        lcd.setText("Hello World");
+        lcd.setText("Use Up, Down, and the Select button to make a task selection");
         String address = Util.getLocalAddress().toString().substring(1);
         ButtonPressedObserver observer = new ButtonPressedObserver(lcd);
         observer.addButtonListener(new ButtonListener() {
@@ -19,19 +19,19 @@ public class Runner {
             public void onButtonPressed(Button button) {
                 try {
                     switch (button) {
+                        case RIGHT:
+                            break;
+                        case LEFT:
+                            break;
+                        case DOWN:
+                            break;
                         case UP:
-                            lcd.clear();
-                            System.out.println("up case");
-                            lcd.setText("Nice");
                             break;
                         case SELECT:
-                            lcd.clear();
-                            System.out.println("select case");
-                            lcd.setText("IP Address:\n" + address);
+                            showIP.showIP(lcd);
                             break;
                         default:
                             lcd.clear();
-                            System.out.println("default case");
                             lcd.setText("Huh, that isnt right");
                             break;
                     }
@@ -40,14 +40,7 @@ public class Runner {
                 }
             }
         });
-        System.out.println("Press enter to quit!");
-        System.in.read();
         lcd.stop();
         while(true){}
-        }
-    private void handleException(IOException e) {
-        System.out.println("Problem connecting to lcd");
-        e.printStackTrace();
-        System.exit(-2);
     }
 }
