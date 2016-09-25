@@ -5,7 +5,7 @@ import se.hirt.pi.adafruitlcd.*;
 import se.hirt.pi.adafruitlcd.impl.RealLCD;
 
 import java.io.IOException;
-import java.net.InetAddress;
+
 
 public class Runner {
     public static void main(String Args[]) throws IOException {
@@ -27,7 +27,7 @@ public class Runner {
                         case SELECT:
                             lcd.clear();
                             System.out.println("select case");
-                            lcd.setText("Nice");
+                            lcd.setText(address);
                             break;
                         default:
                             lcd.clear();
