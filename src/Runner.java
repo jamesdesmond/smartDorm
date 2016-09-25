@@ -40,7 +40,6 @@ public class Runner {
                 }
             }
         });
-        lcd.stop();
         while(true){}
     }
 }
