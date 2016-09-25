@@ -12,6 +12,7 @@ public class Runner {
         final ILCD lcd = new RealLCD();
         lcd.setBacklight(Color.RED);
         lcd.setText("Hello World");
+        String address = Util.getLocalAddress().toString().substring(1);
         ButtonPressedObserver observer = new ButtonPressedObserver(lcd);
         observer.addButtonListener(new ButtonListener() {
             @Override
@@ -26,7 +27,7 @@ public class Runner {
                         case SELECT:
                             lcd.clear();
                             System.out.println("select case");
-                            lcd.setText(String.valueOf("IP Addr:\n" + Util.getLocalAddress().toString().substring(1)));
+                            lcd.setText("Nice");
                             break;
                         default:
                             lcd.clear();
