@@ -20,12 +20,20 @@ public class Runner {
                 try {
                     switch (button) {
                         case RIGHT:
+                            lcd.clear();
+                            lcd.setText("RIGHT");
                             break;
                         case LEFT:
+                            lcd.clear();
+                            lcd.setText("LEFT");
                             break;
                         case DOWN:
+                            lcd.clear();
+                            lcd.setText("DOWN");
                             break;
                         case UP:
+                            lcd.clear();
+                            lcd.setText("UP");
                             break;
                         case SELECT:
                             showIP.showIP(lcd);
