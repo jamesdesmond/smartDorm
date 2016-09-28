@@ -100,7 +100,7 @@ public class Runner {
                 System.out.println("case 2 in openSelected()");
                 break;
             case 3:
-                sendText.sendText("8608332915@vtext.com");
+                System.out.println("case 3 in openSelected()");
             case 4:
                 showIP.showIP(ilcd);
                 break;
