@@ -69,6 +69,7 @@ public class Runner {
                 System.out.println("Shifted to case 4.   case:0");
                 break;
             case 1:
+                ilcd.clear();
                 ilcd.setText("Case 1:\nThe Weather");
                 System.out.println("case:1");
                 break;
