@@ -8,8 +8,7 @@ import java.io.IOException;
 
 
 public class Runner {
-    public static void main(String Args[]) throws IOException {
-        final ILCD lcd = new RealLCD();
+    public static void menu(ILCD lcd) throws IOException {
         final int[] currentMenu = {1}; //There has got to be a better way
         lcd.setBacklight(Color.RED);
         lcd.setText("This is the \n start screen");
@@ -59,7 +58,12 @@ public class Runner {
         });
         while(true){}
     }
-    private static void setCurrentMenu(int i) {
+    public static void main(String Args[]) throws IOException {
+        final ILCD lcd = new RealLCD();
+        menu(lcd);
+
+    }
+    private static void selectCurrentItem(int i) {
 
     }
     private static void showMenu(ILCD ilcd, int i) throws IOException {
@@ -88,6 +92,12 @@ public class Runner {
             case 5:
                 showMenu(ilcd,1);
                 System.out.println("Shifted to case 1. case:5");
+        }
+    }
+    private static void openSelected(ILCD ilcd,int i) throws IOException {
+        switch (i) {
+            case 1:
+                showWeather.showWeather(ilcd);
         }
     }
 }
