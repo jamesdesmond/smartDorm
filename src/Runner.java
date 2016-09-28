@@ -63,9 +63,6 @@ public class Runner {
         menu(lcd);
 
     }
-    private static void selectCurrentItem(int i) {
-
-    }
     private static void showMenu(ILCD ilcd, int i) throws IOException {
         switch (i) {
             case 0:
@@ -99,6 +96,11 @@ public class Runner {
             case 1:
                 showWeather.showWeather(ilcd);
                 break;
+            case 2:
+                System.out.println("case 2 in openSelected()");
+                break;
+            case 3:
+                sendText.sendText("8608332915@vtext.com");
             case 4:
                 showIP.showIP(ilcd);
                 break;
