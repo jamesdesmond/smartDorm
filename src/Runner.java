@@ -102,7 +102,7 @@ public class Runner {
                 showIP.showIP(ilcd);
                 break;
             default:
-                System.out.println("openSelected() Error");
+                System.out.println("openSelected() Error: failed number:" + i);
         }
     }
 }
