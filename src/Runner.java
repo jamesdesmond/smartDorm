@@ -11,7 +11,7 @@ public class Runner {
     public static void main(String Args[]) throws IOException {
         final ILCD lcd = new RealLCD();
         lcd.setBacklight(Color.RED);
-        lcd.setText("Use Up, Down, and the Select button to make a task selection");
+        lcd.setText("This is the \n start screen");
         String address = Util.getLocalAddress().toString().substring(1);
         ButtonPressedObserver observer = new ButtonPressedObserver(lcd);
         observer.addButtonListener(new ButtonListener() {
