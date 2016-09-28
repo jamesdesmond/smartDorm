@@ -97,6 +97,7 @@ public class Runner {
                 break;
             case 3:
                 System.out.println("case 3 in openSelected()");
+                break;
             case 4:
                 showIP.showIP(ilcd);
                 break;
