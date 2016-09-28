@@ -19,7 +19,7 @@ public class Runner {
             @Override
             public void onButtonPressed(Button button) {
                 try {
-                    int currentMenu = 0;
+                    int currentMenu = 1;
                     switch (button) {
                         case RIGHT:
                             lcd.clear();
