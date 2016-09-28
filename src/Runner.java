@@ -32,14 +32,14 @@ public class Runner {
                         case DOWN:
                             lcd.clear();
                             System.out.println(currentMenu);
-                            currentMenu++;
+                            currentMenu = currentMenu++;
                             System.out.println(currentMenu + "DOWN");
                             showMenu(lcd,currentMenu);
                             break;
                         case UP:
                             lcd.clear();
                             System.out.println(currentMenu);
-                            currentMenu--;
+                            currentMenu = currentMenu--;
                             System.out.println(currentMenu + "UP");
                             showMenu(lcd,currentMenu);
                             break;
