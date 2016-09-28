@@ -18,7 +18,7 @@ public class showWeather {
             public void onButtonPressed(Button button) {
                 try {
                     switch (button) {
-                        case SELECT:
+                        case LEFT:
                             Runner.menu(ilcd);
                             break;
                         default:

@@ -86,7 +86,7 @@ public class Runner {
                 System.out.println("case:3");
                 break;
             case 4:
-                showIP.showIP(ilcd);
+                ilcd.setText("Case4:\nShow IP");
                 System.out.println("case:4");
                 break;
             case 5:
