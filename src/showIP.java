@@ -1,3 +1,6 @@
+import se.hirt.pi.adafruitlcd.Button;
+import se.hirt.pi.adafruitlcd.ButtonListener;
+import se.hirt.pi.adafruitlcd.ButtonPressedObserver;
 import se.hirt.pi.adafruitlcd.ILCD;
 
 import java.io.IOException;
@@ -11,5 +14,23 @@ public class showIP {
         ilcd.clear();
         System.out.println("select case");
         ilcd.setText("IP Address:\n" + address);
+        ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
+        observer.addButtonListener(new ButtonListener() {
+            @Override
+            public void onButtonPressed(Button button) {
+                try {
+                    switch (button) {
+                        case LEFT:
+                            Runner.menu(ilcd);
+                            break;
+                        default:
+                            break;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        while(true){}
     }
 }
