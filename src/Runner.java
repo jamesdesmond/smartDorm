@@ -44,7 +44,7 @@ public class Runner {
                             showMenu(lcd, currentMenu[0]);
                             break;
                         case SELECT:
-                            showIP.showIP(lcd);
+                            openSelected(lcd,currentMenu[0]);
                             break;
                         default:
                             lcd.clear();
@@ -98,6 +98,12 @@ public class Runner {
         switch (i) {
             case 1:
                 showWeather.showWeather(ilcd);
+                break;
+            case 4:
+                showIP.showIP(ilcd);
+                break;
+            default:
+                System.out.println("openSelected() Error");
         }
     }
 }
