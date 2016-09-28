@@ -31,11 +31,13 @@ public class Runner {
                             break;
                         case DOWN:
                             lcd.clear();
-                            showMenu(lcd,currentMenu++);
+                            currentMenu++;
+                            showMenu(lcd,currentMenu);
                             break;
                         case UP:
                             lcd.clear();
-                            showMenu(lcd,currentMenu--);
+                            currentMenu--;
+                            showMenu(lcd,currentMenu);
                             break;
                         case SELECT:
                             showIP.showIP(lcd);
