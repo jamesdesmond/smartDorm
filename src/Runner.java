@@ -22,12 +22,8 @@ public class Runner {
                     currentMenu[0] = (currentMenu[0] <= 0)?5:currentMenu[0];
                     switch (button) {
                         case RIGHT:
-                            lcd.clear();
-                            lcd.setText("RIGHT");
                             break;
                         case LEFT:
-                            lcd.clear();
-                            lcd.setText("LEFT");
                             break;
                         case DOWN:
                             lcd.clear();
