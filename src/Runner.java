@@ -19,6 +19,8 @@ public class Runner {
             @Override
             public void onButtonPressed(Button button) {
                 try {
+                    currentMenu[0] = (currentMenu[0] == 5)?1:currentMenu[0];
+                    currentMenu[0] = (currentMenu[0] == 0)?5:currentMenu[0];
                     switch (button) {
                         case RIGHT:
                             lcd.clear();
