@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Runner {
     public static void main(String Args[]) throws IOException {
         final ILCD lcd = new RealLCD();
-
+        final int[] currentMenu = {1}; //There has got to be a better way
         lcd.setBacklight(Color.RED);
         lcd.setText("This is the \n start screen");
         showMenu(lcd,1);
@@ -19,7 +19,6 @@ public class Runner {
             @Override
             public void onButtonPressed(Button button) {
                 try {
-                    int currentMenu = 1;
                     switch (button) {
                         case RIGHT:
                             lcd.clear();
@@ -31,17 +30,17 @@ public class Runner {
                             break;
                         case DOWN:
                             lcd.clear();
-                            System.out.println(currentMenu);
-                            currentMenu = currentMenu++;
-                            System.out.println(currentMenu + "DOWN");
-                            showMenu(lcd,currentMenu);
+                            System.out.println(currentMenu[0]);
+                            currentMenu[0]++;
+                            System.out.println(currentMenu[0] + "DOWN");
+                            showMenu(lcd, currentMenu[0]);
                             break;
                         case UP:
                             lcd.clear();
-                            System.out.println(currentMenu);
-                            currentMenu = currentMenu--;
-                            System.out.println(currentMenu + "UP");
-                            showMenu(lcd,currentMenu);
+                            System.out.println(currentMenu[0]);
+                            currentMenu[0]--;
+                            System.out.println(currentMenu[0] + "UP");
+                            showMenu(lcd, currentMenu[0]);
                             break;
                         case SELECT:
                             showIP.showIP(lcd);
@@ -57,6 +56,9 @@ public class Runner {
             }
         });
         while(true){}
+    }
+    private static void setCurrentMenu(int i) {
+
     }
     private static void showMenu(ILCD ilcd, int i) throws IOException {
         switch (i) {
