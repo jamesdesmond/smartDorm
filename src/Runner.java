@@ -30,9 +30,11 @@ public class Runner {
                             lcd.setText("LEFT");
                             break;
                         case DOWN:
+                            lcd.clear();
                             showMenu(lcd,currentMenu++);
                             break;
                         case UP:
+                            lcd.clear();
                             showMenu(lcd,currentMenu--);
                             break;
                         case SELECT:
