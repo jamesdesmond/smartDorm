@@ -1,3 +1,5 @@
+import com.github.dvdme.ForecastIOLib.FIOCurrently;
+import com.github.dvdme.ForecastIOLib.FIODaily;
 import com.github.dvdme.ForecastIOLib.ForecastIO;
 import com.oracle.tools.packager.IOUtils;
 import se.hirt.pi.adafruitlcd.Button;
@@ -8,12 +10,16 @@ import se.hirt.pi.adafruitlcd.ILCD;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.DoubleSummaryStatistics;
 
 /**
  * Created by james on 9/24/16.
  */
 public class showWeather {
     public static void showWeather (ILCD ilcd) throws IOException {
+        final int TODAY = 0;
+        final int HIGH_TEMP = 1;
+        final int LOW_TEMP = 19;
         ilcd.clear();
         ilcd.setText("Hey its the weather");
         FileInputStream inputStream = new FileInputStream("api.txt");
@@ -22,7 +28,27 @@ public class showWeather {
         fio.setUnits(ForecastIO.UNITS_US);             //sets the units as SI - optional
         fio.setExcludeURL("hourly,minutely");             //excluded the minutely and hourly reports from the reply
         fio.getForecast("42.3605","-71.0596");
-
+        FIOCurrently currently = new FIOCurrently(fio);
+        FIODaily daily = new FIODaily(fio);
+        String [] h = daily.getDay(TODAY).getFieldsArray();
+        String hi = daily.getDay(TODAY).getByKey(h[HIGH_TEMP]); //high for the day
+        String lo = daily.getDay(TODAY).getByKey(h[LOW_TEMP]); //low for the day
+        Double temp = currently.get().temperature();
+        Double rain = currently.get().precipProbability();
+        String offsetTopRow = "";
+        for (int i = 0; i < 3 - String.valueOf(temp).length();i++) {
+            offsetTopRow = offsetTopRow + " ";
+        }
+        String offsetBottomRow = "";
+        rain = rain * 100; //Make into percentage
+        for (int i = 0; i < 3 - String.valueOf(rain).length(); i++) {
+            offsetBottomRow = offsetBottomRow + " ";
+        }
+        offsetBottomRow = offsetBottomRow + "%";
+        ilcd.setText(
+                "NOW:" + temp + offsetTopRow + "   " + "HI:" + hi +
+                "RAIN:" + rain + offsetBottomRow + " " + "LO:" + lo
+        );
         ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
         observer.addButtonListener(new ButtonListener() {
             @Override
