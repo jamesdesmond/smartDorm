@@ -12,6 +12,8 @@ public class showWeather {
     public static void showWeather (ILCD ilcd) throws IOException {
         ilcd.clear();
         ilcd.setText("Hey its the weather");
+
+
         ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
         observer.addButtonListener(new ButtonListener() {
             @Override
