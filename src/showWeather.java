@@ -7,7 +7,10 @@ import se.hirt.pi.adafruitlcd.ButtonPressedObserver;
 import se.hirt.pi.adafruitlcd.ILCD;
 
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
+
 /**
  * Created by james on 9/24/16.
  */
@@ -20,8 +23,8 @@ public class showWeather {
         final int LOW_TEMP = 19;
         ilcd.clear();
         ilcd.setText("Hey its the weather");
-        FileInputStream inputStream = new FileInputStream("out/production/smartDorm/api.txt");
-        String api = inputStream.getClass().getResourceAsStream("out/production/smartDorm/api.txt").toString();
+        Scanner in = new Scanner(new FileReader("out/production/smartDorm/api.txt"));
+        String api = in.toString();
         System.out.println("api: " + api);
         ForecastIO fio = new ForecastIO(api);
         fio.setUnits(ForecastIO.UNITS_US);             //sets the units as SI - optional
