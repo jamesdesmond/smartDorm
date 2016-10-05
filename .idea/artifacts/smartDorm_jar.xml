@@ -4,6 +4,7 @@
     <root id="archive" name="smartDorm.jar">
       <element id="module-output" name="smartDorm" />
       <element id="extracted-dir" path="$USER_HOME$/Google Drive/lcd.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Google Drive/ForecastIOLib-1.5.2-jar-with-dependencies.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
