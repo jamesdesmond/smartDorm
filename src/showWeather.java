@@ -9,6 +9,8 @@ import se.hirt.pi.adafruitlcd.ILCD;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 /**
@@ -23,8 +25,7 @@ public class showWeather {
         final int LOW_TEMP = 19;
         ilcd.clear();
         ilcd.setText("Hey its the weather");
-        Scanner in = new Scanner(new FileReader("/api.txt"));
-        String api = in.toString();
+        String api = new String(Files.readAllBytes(Paths.get("api.txt")));
         System.out.println("api: " + api);
         ForecastIO fio = new ForecastIO(api);
         fio.setUnits(ForecastIO.UNITS_US);             //sets the units as SI - optional
