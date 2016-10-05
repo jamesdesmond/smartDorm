@@ -30,6 +30,7 @@ public class Runner {
                             System.out.println(currentMenu[0]);
                             currentMenu[0]++;
                             System.out.println(currentMenu[0] + "DOWN");
+                            currentMenu[0] = currentMenu[0] == 5?1:currentMenu[0]; //JANKY WAY OF HANDLING BOUNDS
                             showMenu(lcd, currentMenu[0]);
                             break;
                         case UP:
@@ -37,6 +38,7 @@ public class Runner {
                             System.out.println(currentMenu[0]);
                             currentMenu[0]--;
                             System.out.println(currentMenu[0] + "UP");
+                            currentMenu[0] = currentMenu[0] == 0?4:currentMenu[0]; //JANKY WAY OF HANDLING BOUNDS
                             showMenu(lcd, currentMenu[0]);
                             break;
                         case SELECT:
