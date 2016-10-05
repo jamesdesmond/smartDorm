@@ -26,7 +26,7 @@ public class showWeather {
         ilcd.clear();
         ilcd.setText("Hey its the weather");
         String api = new String(Files.readAllBytes(Paths.get("api.txt")));
-        api = api.substring(0,31);
+        api = api.substring(0,32);
         System.out.println("api: " + api + "length: " + api.length());
         //DEBUG
         for (int i = 0; i < api.length(); i++) {
