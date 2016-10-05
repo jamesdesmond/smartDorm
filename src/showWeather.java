@@ -25,6 +25,7 @@ public class showWeather {
         ilcd.setText("Hey its the weather");
         FileInputStream inputStream = new FileInputStream("api.txt");
         String api = inputStream.toString();
+        System.out.println(api);
         ForecastIO fio = new ForecastIO(api);
         fio.setUnits(ForecastIO.UNITS_US);             //sets the units as SI - optional
         fio.setExcludeURL("hourly,minutely");             //excluded the minutely and hourly reports from the reply
