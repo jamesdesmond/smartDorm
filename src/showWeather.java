@@ -11,6 +11,7 @@ import java.io.IOException;
 /**
  * Created by james on 9/24/16.
  */
+
 public class showWeather {
     public static void showWeather (ILCD ilcd) throws IOException {
         //Test
@@ -19,8 +20,8 @@ public class showWeather {
         final int LOW_TEMP = 19;
         ilcd.clear();
         ilcd.setText("Hey its the weather");
-        FileInputStream inputStream = new FileInputStream("api.txt");
-        String api = inputStream.getClass().getResourceAsStream("api.txt").toString();
+        FileInputStream inputStream = new FileInputStream("out/production/smartDorm/api.txt");
+        String api = inputStream.getClass().getResourceAsStream("out/production/smartDorm/api.txt").toString();
         System.out.println("api: " + api);
         ForecastIO fio = new ForecastIO(api);
         fio.setUnits(ForecastIO.UNITS_US);             //sets the units as SI - optional
