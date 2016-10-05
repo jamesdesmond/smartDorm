@@ -17,6 +17,7 @@ import java.util.DoubleSummaryStatistics;
  */
 public class showWeather {
     public static void showWeather (ILCD ilcd) throws IOException {
+        //Test
         final int TODAY = 0;
         final int HIGH_TEMP = 1;
         final int LOW_TEMP = 19;
