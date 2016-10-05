@@ -1,17 +1,13 @@
 import com.github.dvdme.ForecastIOLib.FIOCurrently;
 import com.github.dvdme.ForecastIOLib.FIODaily;
 import com.github.dvdme.ForecastIOLib.ForecastIO;
-import com.oracle.tools.packager.IOUtils;
 import se.hirt.pi.adafruitlcd.Button;
 import se.hirt.pi.adafruitlcd.ButtonListener;
 import se.hirt.pi.adafruitlcd.ButtonPressedObserver;
 import se.hirt.pi.adafruitlcd.ILCD;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.DoubleSummaryStatistics;
-
 /**
  * Created by james on 9/24/16.
  */
@@ -24,8 +20,8 @@ public class showWeather {
         ilcd.clear();
         ilcd.setText("Hey its the weather");
         FileInputStream inputStream = new FileInputStream("api.txt");
-        String api = inputStream.toString();
-        System.out.println(api);
+        String api = inputStream.getClass().getResourceAsStream("api.txt").toString();
+        System.out.println("api: " + api);
         ForecastIO fio = new ForecastIO(api);
         fio.setUnits(ForecastIO.UNITS_US);             //sets the units as SI - optional
         fio.setExcludeURL("hourly,minutely");             //excluded the minutely and hourly reports from the reply
