@@ -23,7 +23,7 @@ public class showWeather {
         final int LOW_TEMP = 19;
         ilcd.clear();
         ilcd.setText("Hey its the weather");
-        Scanner in = new Scanner(new FileReader("api.txt"));
+        Scanner in = new Scanner(new FileReader("/api.txt"));
         String api = in.toString();
         System.out.println("api: " + api);
         ForecastIO fio = new ForecastIO(api);
