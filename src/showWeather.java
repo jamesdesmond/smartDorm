@@ -22,7 +22,7 @@ public class showWeather {
         //Test
         final int TODAY = 0;
         final int HIGH_TEMP = 1;
-        final int LOW_TEMP = 19;
+        final int LOW_TEMP = 18;
         ilcd.clear();
         ilcd.setText("Hey its the weather");
         String api = new String(Files.readAllBytes(Paths.get("api.txt")));
