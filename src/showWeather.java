@@ -35,7 +35,7 @@ public class showWeather {
         //DEBUG
         ForecastIO fio = new ForecastIO(api);
         fio.setUnits(ForecastIO.UNITS_US);             //sets the units as SI - optional
-        fio.setExcludeURL("hourly,minutely");             //excluded the minutely and hourly reports from the reply
+        //fio.setExcludeURL("hourly,minutely");             //excluded the minutely and hourly reports from the reply
         fio.getForecast("42.3605","-71.0596");
         FIOCurrently currently = new FIOCurrently(fio);
         FIODaily daily = new FIODaily(fio);
