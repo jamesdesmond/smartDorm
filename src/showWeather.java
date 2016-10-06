@@ -19,7 +19,6 @@ import java.util.Scanner;
 
 public class showWeather {
     public static void showWeather (ILCD ilcd) throws IOException {
-        //Test
         final int TODAY = 0;
         final int HIGH_TEMP = 1;
         final int LOW_TEMP = 18;
@@ -38,15 +37,15 @@ public class showWeather {
         //fio.setExcludeURL("hourly,minutely");             //excluded the minutely and hourly reports from the reply
         fio.getForecast("42.3605","-71.0596");
         System.out.println(fio.hasCurrently());
-        //FIOCurrently currently = new FIOCurrently(fio);
-        FIODaily daily = new FIODaily(fio);
-        String [] h = daily.getDay(TODAY).getFieldsArray();
-        String hi = daily.getDay(TODAY).getByKey(h[HIGH_TEMP]); //high for the day
-        String lo = daily.getDay(TODAY).getByKey(h[LOW_TEMP]); //low for the day
-        //Double temp = currently.get().temperature();
-        //Double rain = currently.get().precipProbability();
-        double temp = 0;
-        double rain = 0;
+        FIOCurrently currently = new FIOCurrently(fio);
+        //FIODaily daily = new FIODaily(fio);
+        //String [] h = daily.getDay(TODAY).getFieldsArray();
+        //String hi = daily.getDay(TODAY).getByKey(h[HIGH_TEMP]); //high for the day
+        //String lo = daily.getDay(TODAY).getByKey(h[LOW_TEMP]); //low for the day
+        String hi = ".";
+        String lo = "..";
+        Double temp = currently.get().temperature();
+        Double rain = currently.get().precipProbability();
         String offsetTopRow = "";
         for (int i = 0; i < 3 - String.valueOf(temp).length();i++) {
             offsetTopRow = offsetTopRow + " ";
