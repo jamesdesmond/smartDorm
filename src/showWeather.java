@@ -24,7 +24,7 @@ public class showWeather {
         final int HIGH_TEMP = 1;
         final int LOW_TEMP = 18;
         ilcd.clear();
-        ilcd.setText("Hey its the weather");
+        ilcd.setText("Hey its the\nweather");
         String api = new String(Files.readAllBytes(Paths.get("api.txt")));
         api = api.substring(0,32);
         System.out.println("api: " + api + "length: " + api.length());
@@ -37,6 +37,7 @@ public class showWeather {
         fio.setUnits(ForecastIO.UNITS_US);             //sets the units as SI - optional
         //fio.setExcludeURL("hourly,minutely");             //excluded the minutely and hourly reports from the reply
         fio.getForecast("42.3605","-71.0596");
+        System.out.println(fio.hasCurrently());
         FIOCurrently currently = new FIOCurrently(fio);
         FIODaily daily = new FIODaily(fio);
         String [] h = daily.getDay(TODAY).getFieldsArray();
