@@ -38,7 +38,8 @@ public class showWeather {
         //fio.setExcludeURL("hourly,minutely");             //excluded the minutely and hourly reports from the reply
         fio.getForecast("42.3605","-71.0596");
         System.out.println(fio.hasCurrently());
-//        FIOCurrently currently = new FIOCurrently(fio);
+        FIOCurrently currently = new FIOCurrently(fio);
+        System.out.println(currently);
 //        FIODaily daily = new FIODaily(fio);
 //        String [] h = daily.getDay(TODAY).getFieldsArray();
 //        String hi = daily.getDay(TODAY).getByKey(h[HIGH_TEMP]); //high for the day
