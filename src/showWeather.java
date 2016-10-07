@@ -37,46 +37,46 @@ public class showWeather {
         fio.setUnits(ForecastIO.UNITS_US);             //sets the units as SI - optional
         //fio.setExcludeURL("hourly,minutely");             //excluded the minutely and hourly reports from the reply
         fio.getForecast("42.3605","-71.0596");
-        System.out.println(fio.hasCurrently());
-        FIOCurrently currently = new FIOCurrently(fio);
-        FIODaily daily = new FIODaily(fio);
-        String [] h = daily.getDay(TODAY).getFieldsArray();
-        String hi = daily.getDay(TODAY).getByKey(h[HIGH_TEMP]); //high for the day
-        String lo = daily.getDay(TODAY).getByKey(h[LOW_TEMP]); //low for the day
-        Double temp = currently.get().temperature();
-        Double rain = currently.get().precipProbability();
-        String offsetTopRow = "";
-        for (int i = 0; i < 3 - String.valueOf(temp).length();i++) {
-            offsetTopRow = offsetTopRow + " ";
-        }
-        String offsetBottomRow = "";
-        rain = rain * 100; //Make into percentage
-        for (int i = 0; i < 3 - String.valueOf(rain).length(); i++) {
-            offsetBottomRow = offsetBottomRow + " ";
-        }
-        offsetBottomRow = offsetBottomRow + "%";
-        ilcd.setText(
-                "NOW:" + temp + offsetTopRow + "   " + "HI:" + hi +
-                "RAIN:" + rain + offsetBottomRow + " " + "LO:" + lo
-        );
-        ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
-        observer.addButtonListener(new ButtonListener() {
-            @Override
-            public void onButtonPressed(Button button) {
-                try {
-                    switch (button) {
-                        case LEFT:
-                            Runner.menu(ilcd);
-                            break;
-                        default:
-                            break;
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        while(true){}
+//        System.out.println(fio.hasCurrently());
+//        FIOCurrently currently = new FIOCurrently(fio);
+//        FIODaily daily = new FIODaily(fio);
+//        String [] h = daily.getDay(TODAY).getFieldsArray();
+//        String hi = daily.getDay(TODAY).getByKey(h[HIGH_TEMP]); //high for the day
+//        String lo = daily.getDay(TODAY).getByKey(h[LOW_TEMP]); //low for the day
+//        Double temp = currently.get().temperature();
+//        Double rain = currently.get().precipProbability();
+//        String offsetTopRow = "";
+//        for (int i = 0; i < 3 - String.valueOf(temp).length();i++) {
+//            offsetTopRow = offsetTopRow + " ";
+//        }
+//        String offsetBottomRow = "";
+//        rain = rain * 100; //Make into percentage
+//        for (int i = 0; i < 3 - String.valueOf(rain).length(); i++) {
+//            offsetBottomRow = offsetBottomRow + " ";
+//        }
+//        offsetBottomRow = offsetBottomRow + "%";
+//        ilcd.setText(
+//                "NOW:" + temp + offsetTopRow + "   " + "HI:" + hi +
+//                "RAIN:" + rain + offsetBottomRow + " " + "LO:" + lo
+//        );
+//        ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
+//        observer.addButtonListener(new ButtonListener() {
+//            @Override
+//            public void onButtonPressed(Button button) {
+//                try {
+//                    switch (button) {
+//                        case LEFT:
+//                            Runner.menu(ilcd);
+//                            break;
+//                        default:
+//                            break;
+//                    }
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//        while(true){}
     }
 }
 
