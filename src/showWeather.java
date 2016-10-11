@@ -46,6 +46,10 @@ public class showWeather {
         String lo = daily.getDay(TODAY).getByKey(h[LOW_TEMP]); //low for the day
         Double temp = currently.get().temperature();
         Double rain = currently.get().precipProbability();
+        System.out.println("hi: " + hi);
+        System.out.println("lo: " + lo);
+        System.out.println("temp: " + temp);
+        System.out.println("rain: " + rain);
         String offsetTopRow = "";
         for (int i = 0; i < 3 - String.valueOf(temp).length();i++) {
             offsetTopRow = offsetTopRow + " ";
