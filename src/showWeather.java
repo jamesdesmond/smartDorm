@@ -20,38 +20,29 @@ import java.util.Scanner;
 
 public class showWeather {
     public static void showWeather (ILCD ilcd) throws IOException {
-        //Test
+        //Constants
         final int TODAY = 0;
         final int HIGH_TEMP = 1;
         final int LOW_TEMP = 18;
+        //Setting up
         ilcd.clear();
-        ilcd.setText("Hey its the\nweather");
+        ilcd.setText("Loading...");
+        //Getting api responses
         String api = new String(Files.readAllBytes(Paths.get("api.txt")));
         api = api.substring(0,32);
         System.out.println("api: " + api + "length: " + api.length());
-        //DEBUG
-        for (int i = 0; i < api.length(); i++) {
-            System.out.println(i + " : " + api.charAt(i));
-        }
-        //DEBUG
         ForecastIO fio = new ForecastIO(api);
         fio.setUnits(ForecastIO.UNITS_US);             //sets the units as SI - optional
-        //fio.setExcludeURL("hourly,minutely");             //excluded the minutely and hourly reports from the reply
         fio.getForecast("42.3605","-71.0596");
-        System.out.println(fio.hasCurrently());
         FIOCurrently currently = new FIOCurrently(fio);
-        System.out.println(currently);
         FIODaily daily = new FIODaily(fio);
+        //Assigning values to variables
         String [] h = daily.getDay(TODAY).getFieldsArray();
         int hi = (int) Double.parseDouble(daily.getDay(TODAY).getByKey(h[HIGH_TEMP])); //high for the day
         int lo = (int) Double.parseDouble(daily.getDay(TODAY).getByKey(h[LOW_TEMP])); //low for the day
         int temp = currently.get().temperature().intValue();
         int rain = currently.get().precipProbability().intValue();
-
-        System.out.println("hi: " + hi);
-        System.out.println("lo: " + lo);
-        System.out.println("temp: " + temp);
-        System.out.println("rain: " + rain);
+        //Building output for the display
         String offsetTopRow = "";
         for (int i = 0; i < 3 - String.valueOf(temp).length();i++) {
             offsetTopRow = offsetTopRow + " ";
@@ -61,28 +52,10 @@ public class showWeather {
         for (int i = 0; i < 3 - String.valueOf(rain).length(); i++) {
             offsetBottomRow = offsetBottomRow + " ";
         }
-        offsetBottomRow = offsetBottomRow + "%";
+        offsetBottomRow = offsetBottomRow + "";
         ilcd.setText(
                 "NOW:" + temp + offsetTopRow + "   " + "HI:" + hi + "\n" +
-                "RAIN:" + rain + offsetBottomRow + " " + "LO:" + lo
+                "RAIN:" + rain + "%" + offsetBottomRow + " " + "LO:" + lo
         );
-        /*ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
-        observer.addButtonListener(new ButtonListener() {
-            @Override
-            public void onButtonPressed(Button button) {
-                try {
-                    switch (button) {
-                        case LEFT:
-                            Runner.menu(ilcd);
-                            break;
-                        default:
-                            break;
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        while(true){}*/
     }
 }
