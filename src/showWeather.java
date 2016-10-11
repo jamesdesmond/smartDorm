@@ -61,7 +61,7 @@ public class showWeather {
         }
         offsetBottomRow = offsetBottomRow + "%";
         ilcd.setText(
-                "NOW:" + temp + offsetTopRow + "   " + "HI:" + hi +
+                "NOW:" + temp + offsetTopRow + "   " + "HI:" + hi + "\n" +
                 "RAIN:" + rain + offsetBottomRow + " " + "LO:" + lo
         );
         /*ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
