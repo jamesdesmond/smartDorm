@@ -36,13 +36,17 @@ public class showWeather {
         fio.getForecast("42.3605","-71.0596");
         FIOCurrently currently = new FIOCurrently(fio);
         FIODaily daily = new FIODaily(fio);
-        //Assigning values to variables
         String [] h = daily.getDay(TODAY).getFieldsArray();
         int hi = (int) Double.parseDouble(daily.getDay(TODAY).getByKey(h[HIGH_TEMP])); //high for the day
         int lo = (int) Double.parseDouble(daily.getDay(TODAY).getByKey(h[LOW_TEMP])); //low for the day
         int temp = currently.get().temperature().intValue();
         int rain = currently.get().precipProbability().intValue();
-        //Building output for the display
+        //DEBUG
+        System.out.println("hi: " + hi);
+        System.out.println("lo: " + lo);
+        System.out.println("temp: " + temp);
+        System.out.println("rain: " + rain);
+        //Building output
         String offsetTopRow = "";
         for (int i = 0; i < 3 - String.valueOf(temp).length();i++) {
             offsetTopRow = offsetTopRow + " ";
