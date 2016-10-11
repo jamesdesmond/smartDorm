@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.DoubleSummaryStatistics;
 import java.util.Scanner;
 
 /**
@@ -42,10 +43,11 @@ public class showWeather {
         System.out.println(currently);
         FIODaily daily = new FIODaily(fio);
         String [] h = daily.getDay(TODAY).getFieldsArray();
-        String hi = daily.getDay(TODAY).getByKey(h[HIGH_TEMP]); //high for the day
-        String lo = daily.getDay(TODAY).getByKey(h[LOW_TEMP]); //low for the day
-        Double temp = currently.get().temperature();
-        Double rain = currently.get().precipProbability();
+        int hi = (int) Double.parseDouble(daily.getDay(TODAY).getByKey(h[HIGH_TEMP])); //high for the day
+        int lo = (int) Double.parseDouble(daily.getDay(TODAY).getByKey(h[LOW_TEMP])); //low for the day
+        int temp = currently.get().temperature().intValue();
+        int rain = currently.get().precipProbability().intValue();
+
         System.out.println("hi: " + hi);
         System.out.println("lo: " + lo);
         System.out.println("temp: " + temp);
