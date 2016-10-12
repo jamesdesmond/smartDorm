@@ -15,6 +15,7 @@ public class sendText {
     private static void sendText(String address, String message) throws IOException {
         System.out.println("sendText()0");
         String[] cmd = { "/bin/sh", "-c", "cd /root/ && mutt -s \"SmartDorm\"" + address + "<<< \"" + message + "\""};
+        System.out.println("/bin/sh" + "-c" + "cd /root/ && mutt -s \"SmartDorm\"" + address + "<<< \"" + message + "\"");
         System.out.println("sendText()1");
         Runtime.getRuntime().exec(cmd);
         System.out.println(Runtime.getRuntime().exec(cmd).toString());
