@@ -13,8 +13,8 @@ public class sendText {
         //TODO: some kind of password based system for protecting against spam by my other roomates who are obviously jealous of my SmartDorm system.
     }*/
     private static void sendText(String address, String message) throws IOException {
-        //Eventually make a whole menu system
-        Runtime.getRuntime().exec("cd /root/ && mutt -s \"SmartDorm\"" + address + "<<< \"" + message + "\"");
+        String[] cmd = { "/bin/sh", "-c", "cd /root/ && mutt -s \"SmartDorm\"" + address + "<<< \"" + message + "\""};
+        Runtime.getRuntime().exec(cmd);
     }
     public static void textJames() throws IOException {
         sendText("8608332915@vtext.com","I need the room for a little bit");
