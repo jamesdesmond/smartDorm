@@ -15,7 +15,8 @@ public class sendText {
     private static void sendText(String address, String message) throws IOException {
         System.out.println("sendText()0");
         Runtime.getRuntime().exec("sudo mutt -F /root/.muttrc -s \"SmartDorm\"" + " "  + address + " " + "<<< \"" + message + "\"");//empty strings added for emphasis
-        System.out.println("mutt -F /root/.muttrc -s \"SmartDorm\"" + " "  + address + " " + "<<< \"" + message + "\"");
+        Runtime.getRuntime().exec("touch /home/pi/itworks.txt");
+        System.out.println("sudo mutt -F /root/.muttrc -s \"SmartDorm\"" + " "  + address + " " + "<<< \"" + message + "\"");
         System.out.println("sendText()1");
         System.out.println("sendText()2");
     }
