@@ -98,6 +98,7 @@ public class Runner {
                 sendText.textCarter();
                 break;
             case 3:
+                System.out.println("openSelected()0");
                 sendText.textJames();
                 break;
             case 4:
