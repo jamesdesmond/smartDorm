@@ -95,10 +95,10 @@ public class Runner {
                 showWeather.showWeather(ilcd);
                 break;
             case 2:
-                System.out.println("case 2 in openSelected()");
+                sendText.textCarter();
                 break;
             case 3:
-                System.out.println("case 3 in openSelected()");
+                sendText.textJames();
                 break;
             case 4:
                 showIP.showIP(ilcd);
