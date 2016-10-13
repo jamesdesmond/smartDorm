@@ -15,8 +15,8 @@ public class sendText {
     private static void sendText(String address, String message) {
         System.out.println("sendText()0");
         //String command = "bash", "-c", \"mutt -F /root/.muttrc -s \"SmartDorm\" 8608332915@vtext.com <<< \\\"I need the room for a little bit\\\"\"";
-        //String[] command = {"bash","-c","\"mutt -F /root/.muttrc -s \"SmartDorm\" 8608332915@vtext.com <<< \\\"I need the room for a little bit\\\"\""};
-        String[] command = {"touch","/home/pi/test.txt"};
+        String[] command = {"mutt" ,  "-F" ,  "/root/.muttrc" ,  "-s" ,  "\"SmartDorm\"", "8608332915@vtext.com" , "<<<" ,  "\"I need the room for a little bit\""};
+        //String[] command = {"touch","/home/pi/test.txt"};
         System.out.println(Arrays.toString(command));
         /*int i = Runtime.getRuntime().exec(command).waitFor();
         try {
