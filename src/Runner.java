@@ -90,16 +90,20 @@ public class Runner {
         }
     }
     private static void openSelected(ILCD ilcd,int i) throws IOException {
+        //TODO: Move the loading tips from here to sendText.java
         switch (i) {
             case 1:
                 showWeather.showWeather(ilcd);
                 break;
             case 2:
+                ilcd.setText("Loading...");
                 sendText.textCarter();
+                ilcd.setText("Done.");
                 break;
             case 3:
-                System.out.println("openSelected()0");
+                ilcd.setText("Loading...");
                 sendText.textJames();
+                ilcd.setText("Done.");
                 break;
             case 4:
                 showIP.showIP(ilcd);

@@ -14,18 +14,8 @@ public class sendText {
     }*/
     private static void sendText(String address, String message) {
         System.out.println("sendText()0");
-        //String command = "bash", "-c", \"mutt -F /root/.muttrc -s \"SmartDorm\" 8608332915@vtext.com <<< \\\"I need the room for a little bit\\\"\"";
-        String[] command = {"/bin/bash", "-c", "mutt -F /root/.muttrc -s \"SmartDorm\" 8608332915@vtext.com <<< \"I need the room for a little bit\""};
-        //String[] command = {"touch","/home/pi/test.txt"};
+        String[] command = {"/bin/bash", "-c", "mutt -F /root/.muttrc -s \"SmartDorm\"" +  message  + "<<< \"" + message + "\""};
         System.out.println(Arrays.toString(command));
-        /*int i = Runtime.getRuntime().exec(command).waitFor();
-        try {
-            Runtime.getRuntime().exec(command).waitFor();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
         ProcessBuilder processBuilder = new ProcessBuilder(command);
         try {
             Process process = processBuilder.start();
@@ -36,11 +26,8 @@ public class sendText {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(System.getProperty("user.name"));
-        System.out.println("sendText()1");
     }
     public static void textJames() {
-        System.out.println("textJames()");
         sendText("8608332915@vtext.com","I need the room for a little bit");
     }
     public static void textCarter() {
