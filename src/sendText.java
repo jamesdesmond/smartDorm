@@ -1,6 +1,5 @@
 import se.hirt.pi.adafruitlcd.ILCD;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -11,23 +10,28 @@ public class sendText {
         //TODO: multiple options for messages
         //TODO: some kind of password based system for protecting against spam by my other roomates who are obviously jealous of my SmartDorm system.
     }*/
-    private static void sendText(String address, String message) throws IOException {
+    private static void sendText(String address, String message) {
         System.out.println("sendText()0");
-        String command = "mutt -F /root/.muttrc -s \"SmartDorm\"" + " "  + address + " " + "<<< \"" + message + "\""; //empty strings added for emphasis
-        //String workspace = "/root/";
-        ProcessBuilder processBuilder = new ProcessBuilder(command);
-        //processBuilder.directory(new File(workspace));
-        processBuilder.start();
-        System.out.println(System.getProperty("user.name"));
+        String command = "/bin/bash -c mutt -F /root/.muttrc -s \"SmartDorm\"" + " "  + address + " " + "<<< \"" + message + "\""; //empty strings added for emphasis
         System.out.println(command);
+        try {
+            Runtime.getRuntime().exec(command).waitFor();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(System.getProperty("user.name"));
         System.out.println("sendText()1");
         System.out.println("sendText()2");
+
     }
-    public static void textJames() throws IOException {
+    public static void textJames() {
         System.out.println("textJames()");
         sendText("8608332915@vtext.com","I need the room for a little bit");
     }
-    public static void textCarter() throws IOException {
+    public static void textCarter() {
         sendText("9788357759@vtext.com","I need the room for a little bit");
     }
+
 }
