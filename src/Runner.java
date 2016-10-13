@@ -96,13 +96,17 @@ public class Runner {
                 showWeather.showWeather(ilcd);
                 break;
             case 2:
+                ilcd.clear();
                 ilcd.setText("Loading...");
                 sendText.textCarter();
+                ilcd.clear();
                 ilcd.setText("Done.");
                 break;
             case 3:
+                ilcd.clear();
                 ilcd.setText("Loading...");
                 sendText.textJames();
+                ilcd.clear();
                 ilcd.setText("Done.");
                 break;
             case 4:
