@@ -1,5 +1,6 @@
 import se.hirt.pi.adafruitlcd.ILCD;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -13,9 +14,10 @@ public class sendText {
     private static void sendText(String address, String message) throws IOException {
         System.out.println("sendText()0");
         String command = "mutt -F /root/.muttrc -s \"SmartDorm\"" + " "  + address + " " + "<<< \"" + message + "\""; //empty strings added for emphasis
+        String workspace = "/bin/bash";
         ProcessBuilder processBuilder = new ProcessBuilder(command);
+        processBuilder.directory(new File(workspace));
         processBuilder.start();
-        //Runtime.getRuntime().exec(command);
         System.out.println(System.getProperty("user.name"));
         System.out.println(command);
         System.out.println("sendText()1");
