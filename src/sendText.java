@@ -14,11 +14,21 @@ public class sendText {
         System.out.println("sendText()0");
         String command = "/bin/bash -c \"mutt -F /root/.muttrc -s \"SmartDorm\" 8608332915@vtext.com <<< \\\"I need the room for a little bit\\\"\"";
         System.out.println(command);
+        /*int i = Runtime.getRuntime().exec(command).waitFor();
         try {
-            Runtime.getRuntime().exec(command).wait(Long.MAX_VALUE); //TODO: implement waitFor() instead of this insanity
+            Runtime.getRuntime().exec(command).waitFor();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+        ProcessBuilder processBuilder = new ProcessBuilder(command);
+        try {
+            Process process = processBuilder.start();
+            process.waitFor();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println(System.getProperty("user.name"));
