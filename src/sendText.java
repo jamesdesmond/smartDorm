@@ -14,9 +14,9 @@ public class sendText {
     private static void sendText(String address, String message) throws IOException {
         System.out.println("sendText()0");
         String command = "mutt -F /root/.muttrc -s \"SmartDorm\"" + " "  + address + " " + "<<< \"" + message + "\""; //empty strings added for emphasis
-        String workspace = "/root/";
+        //String workspace = "/root/";
         ProcessBuilder processBuilder = new ProcessBuilder(command);
-        processBuilder.directory(new File(workspace));
+        //processBuilder.directory(new File(workspace));
         processBuilder.start();
         System.out.println(System.getProperty("user.name"));
         System.out.println(command);
