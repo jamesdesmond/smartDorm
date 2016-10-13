@@ -15,7 +15,7 @@ public class sendText {
         String command = "/bin/bash -c \"mutt -F /root/.muttrc -s \"SmartDorm\" 8608332915@vtext.com <<< \\\"I need the room for a little bit\\\"\"";
         System.out.println(command);
         try {
-            Runtime.getRuntime().exec(command).wait();
+            Runtime.getRuntime().exec(command).wait(Long.MAX_VALUE); //TODO: implement waitFor() instead of this insanity
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (IOException e) {
