@@ -8,29 +8,20 @@ import java.io.IOException;
 /**
  * Created by james on 9/24/16.
  */
-public class showIP {
-    public static void showIP(ILCD ilcd) throws IOException {
-        String address = Util.getLocalAddress().toString().substring(1);
+public class showIP implements LCDApps {
+    public showIP(){};
+
+    private  String getIP() throws IOException {
+        return Util.getLocalAddress().toString().substring(1);
+
+    }
+    @Override
+    public String getName() {
+        return "Show IP Address";
+    }
+    @Override
+    public void run (ILCD ilcd) throws IOException {
         ilcd.clear();
-        System.out.println("select case");
-        ilcd.setText("IP Address:\n" + address);
-//        ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
-//        observer.addButtonListener(new ButtonListener() {
-//            @Override
-//            public void onButtonPressed(Button button) {
-//                try {
-//                    switch (button) {
-//                        case LEFT:
-//                            Runner.menu(ilcd);
-//                            break;
-//                        default:
-//                            break;
-//                    }
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//        while(true){}
+        ilcd.setText("IP Address:\n" + getIP());
     }
 }

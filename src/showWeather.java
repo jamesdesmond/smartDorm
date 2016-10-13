@@ -1,32 +1,21 @@
 import com.github.dvdme.ForecastIOLib.FIOCurrently;
 import com.github.dvdme.ForecastIOLib.FIODaily;
 import com.github.dvdme.ForecastIOLib.ForecastIO;
-import se.hirt.pi.adafruitlcd.Button;
-import se.hirt.pi.adafruitlcd.ButtonListener;
-import se.hirt.pi.adafruitlcd.ButtonPressedObserver;
 import se.hirt.pi.adafruitlcd.ILCD;
+import smartDorm.Enums;
 
-import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.DoubleSummaryStatistics;
-import java.util.Scanner;
 
 /**
  * Created by james on 9/24/16.
  */
 
-public class showWeather {
-    public static void showWeather (ILCD ilcd) throws IOException {
-        //Constants
-        final int TODAY = 0;
-        final int HIGH_TEMP = 1;
-        final int LOW_TEMP = 18;
-        //Setting up
-        ilcd.clear();
-        ilcd.setText("Loading...");
+public class showWeather implements LCDApps{
+    public showWeather(){};
+    //TODO: 5 day forecast
+    private String getWeather () throws IOException {
         //Getting api responses
         String api = new String(Files.readAllBytes(Paths.get("api.txt")));
         api = api.substring(0,32);
@@ -36,9 +25,9 @@ public class showWeather {
         fio.getForecast("42.3605","-71.0596");
         FIOCurrently currently = new FIOCurrently(fio);
         FIODaily daily = new FIODaily(fio);
-        String [] h = daily.getDay(TODAY).getFieldsArray();
-        int hi = (int) Double.parseDouble(daily.getDay(TODAY).getByKey(h[HIGH_TEMP])); //high for the day
-        int lo = (int) Double.parseDouble(daily.getDay(TODAY).getByKey(h[LOW_TEMP])); //low for the day
+        String [] h = daily.getDay(Enums.WeatherInfo.TODAY.getIndex()).getFieldsArray();
+        int hi = (int) Double.parseDouble(daily.getDay(Enums.WeatherInfo.TODAY.getIndex()).getByKey(h[Enums.WeatherInfo.HIGH_TEMP.getIndex()])); //high for the day
+        int lo = (int) Double.parseDouble(daily.getDay(Enums.WeatherInfo.TODAY.getIndex()).getByKey(h[Enums.WeatherInfo.LOW_TEMP.getIndex()])); //low for the day
         int temp = currently.get().temperature().intValue();
         int rain = currently.get().precipProbability().intValue();
         //DEBUG
@@ -57,9 +46,21 @@ public class showWeather {
             offsetBottomRow = offsetBottomRow + " ";
         }
         offsetBottomRow = offsetBottomRow + "";
-        ilcd.setText(
+        return
                 "NOW:" + temp + offsetTopRow + "   " + "HI:" + hi + "\n" +
-                "RAIN:" + rain + "%" + offsetBottomRow + " " + "LO:" + lo
-        );
+                "RAIN:" + rain + "%" + offsetBottomRow + " " + "LO:" + lo;
+    }
+
+    @Override
+    public String getName() {
+        return "Weather";
+    }
+
+    @Override
+    public void run(ILCD ilcd) throws IOException {
+        //Setting up
+        ilcd.clear();
+        ilcd.setText("Loading...");
+        ilcd.setText(getWeather());
     }
 }
