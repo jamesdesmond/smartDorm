@@ -13,13 +13,10 @@ public class sendText {
         //TODO: some kind of password based system for protecting against spam by my other roomates who are obviously jealous of my SmartDorm system.
     }*/
     private static void sendText(String address, String message) {
-        System.out.println("sendText()0");
-        String[] command = {"/bin/bash", "-c", "mutt -F /root/.muttrc -s \"SmartDorm\"" +  message  + "<<< \"" + message + "\""};
-        System.out.println(Arrays.toString(command));
+        String[] command = {"/bin/bash", "-c", "mutt -F /root/.muttrc -s \"SmartDorm\" " + address + " <<< \"" + message + "\""};
         ProcessBuilder processBuilder = new ProcessBuilder(command);
         try {
             Process process = processBuilder.start();
-            System.out.println(process);
             process.waitFor();
         } catch (IOException e) {
             e.printStackTrace();
