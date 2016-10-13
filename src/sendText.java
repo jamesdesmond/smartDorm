@@ -15,7 +15,7 @@ public class sendText {
         String command = "/bin/bash -c \"mutt -F /root/.muttrc -s \"SmartDorm\" 8608332915@vtext.com <<< \\\"I need the room for a little bit\\\"\"";
         System.out.println(command);
         try {
-            Runtime.getRuntime().exec(command).waitFor();
+            Runtime.getRuntime().exec(command).wait();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -23,8 +23,6 @@ public class sendText {
         }
         System.out.println(System.getProperty("user.name"));
         System.out.println("sendText()1");
-        System.out.println("sendText()2");
-
     }
     public static void textJames() {
         System.out.println("textJames()");
@@ -33,5 +31,4 @@ public class sendText {
     public static void textCarter() {
         sendText("9788357759@vtext.com","I need the room for a little bit");
     }
-
 }
