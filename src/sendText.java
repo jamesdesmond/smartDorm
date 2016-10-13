@@ -29,6 +29,7 @@ public class sendText {
         ProcessBuilder processBuilder = new ProcessBuilder(command);
         try {
             Process process = processBuilder.start();
+            System.out.println(process);
             process.waitFor();
         } catch (IOException e) {
             e.printStackTrace();
