@@ -7,16 +7,15 @@ import java.io.IOException;
  */
 public class sendText {
     /*public sendText(ILCD ilcd) throws IOException {
-        ilcd.clear();
-        ilcd.setText("sendText\nMenu");
         //TODO: multiple options for messages
         //TODO: some kind of password based system for protecting against spam by my other roomates who are obviously jealous of my SmartDorm system.
     }*/
     private static void sendText(String address, String message) throws IOException {
         System.out.println("sendText()0");
         String command = "mutt -F /root/.muttrc -s \"SmartDorm\"" + " "  + address + " " + "<<< \"" + message + "\""; //empty strings added for emphasis
-        Runtime.getRuntime().exec(command);
-        //Runtime.getRuntime().exec("whoami > /home/pi/whoami.txt");
+        ProcessBuilder processBuilder = new ProcessBuilder(command);
+        processBuilder.start();
+        //Runtime.getRuntime().exec(command);
         System.out.println(System.getProperty("user.name"));
         System.out.println(command);
         System.out.println("sendText()1");
