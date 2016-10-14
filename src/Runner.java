@@ -18,8 +18,9 @@ public class Runner {
         ilcd.setText("This is the \n start screen");
         ilcd.clear();
         ilcd.setText(1 + ".)\n" +APPS[0].getName());
-        ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
-        observer.addButtonListener(new ButtonListener() {
+        while (true) {
+            ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
+            observer.addButtonListener(new ButtonListener() {
             @Override
             public void onButtonPressed(Button button) {
                 try {
@@ -33,8 +34,6 @@ public class Runner {
                             System.out.println("Down: " + currentMenu[0]);
                             currentMenu[0] = currentMenu[0] + 1;
                             System.out.println("current menu is now: " + currentMenu[0]);
-                            //System.out.println(currentMenu + "DOWN");
-                            //currentMenu = currentMenu == MAX_VALUE?0:currentMenu; //JANKY WAY OF HANDLING BOUNDS
                             if (currentMenu[0] > APPS.length -1) {
                                 currentMenu[0] = 0;
                                 System.out.println("currentMenu was equal to 4, now equal to 0");
@@ -48,8 +47,6 @@ public class Runner {
                             System.out.println("Up: " + currentMenu[0]);
                             currentMenu[0]--;
                             System.out.println("current menu is now: " + currentMenu[0]);
-                            //System.out.println(currentMenu + "UP");
-                            //currentMenu = currentMenu == 0?MAX_VALUE:currentMenu; //JANKY WAY OF HANDLING BOUNDS
                             if (currentMenu[0] < 0) {
                                 currentMenu[0] = APPS.length -1;
                                 System.out.println("currentMenu was equal to -1, now equal to 3");
@@ -71,7 +68,7 @@ public class Runner {
                 }
             }
         });
-        while(true) {}
+        }
     }
     public static void main(String Args[]) throws IOException {
         final ILCD lcd = new RealLCD();
