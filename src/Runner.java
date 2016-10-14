@@ -32,6 +32,10 @@ public class Runner {
                 try {
                     if (!inApp) {
                         switch (button) {
+                            case LEFT:
+                                break;
+                            case RIGHT:
+                                break;
                             case DOWN:
                                 ilcd.clear();
                                 System.out.println("Down: " + currentMenu);
@@ -70,6 +74,7 @@ public class Runner {
                     } else {
                         if (button == Button.UP || button == Button.DOWN) {
                             setInApp(false);
+                            ilcd.setText(currentMenu + 1 + ".)\n" + APPS[currentMenu].getName());
                         }
                     }
                 } catch (IOException e) {
