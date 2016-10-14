@@ -17,7 +17,7 @@ public class Runner {
         ilcd.setBacklight(Color.RED);
         ilcd.setText("This is the \n start screen");
         ilcd.clear();
-        ilcd.setText(0 + 1 + ".)\n" +APPS[0 + 1].getName());
+        ilcd.setText(0 + 1 + ".)\n" +APPS[0].getName());
         ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
         observer.addButtonListener(new ButtonListener() {
             @Override
@@ -38,7 +38,7 @@ public class Runner {
                             System.out.println(currentMenu + "DOWN");
                             currentMenu = currentMenu == MAX_VALUE?0:currentMenu; //JANKY WAY OF HANDLING BOUNDS
                             ilcd.clear();
-                            ilcd.setText(currentMenu + 1 + ".)\n" + APPS[currentMenu + 1].getName());
+                            ilcd.setText(currentMenu + 1 + ".)\n" + APPS[currentMenu].getName());
                             break;
                         case UP:
                             ilcd.clear();
@@ -47,7 +47,7 @@ public class Runner {
                             System.out.println(currentMenu + "UP");
                             currentMenu = currentMenu == 0?MAX_VALUE:currentMenu; //JANKY WAY OF HANDLING BOUNDS
                             ilcd.clear();
-                            ilcd.setText(currentMenu + 1 + ".)\n" +APPS[currentMenu + 1].getName());
+                            ilcd.setText(currentMenu + 1 + ".)\n" +APPS[currentMenu].getName());
                             break;
                         case SELECT:
                             APPS[currentMenu].run(ilcd);
