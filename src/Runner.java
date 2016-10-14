@@ -13,7 +13,7 @@ public class Runner {
             new showWeather(),new sendText(Enums.People.CARTER),new sendText(Enums.People.JAMES),new showIP()
     };
     public static void main(ILCD ilcd) throws IOException {
-        int MAX_VALUE = 3;
+        int MAX_VALUE = 4;
         ilcd.setBacklight(Color.RED);
         ilcd.setText("This is the \n start screen");
         ilcd.clear();
