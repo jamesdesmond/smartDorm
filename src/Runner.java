@@ -32,24 +32,26 @@ public class Runner {
                             break;
                         case DOWN:
                             ilcd.clear();
-                            System.out.println(currentMenu);
+                            System.out.println("Down: " + currentMenu);
                             currentMenu++;
                             //System.out.println(currentMenu + "DOWN");
                             //currentMenu = currentMenu == MAX_VALUE?0:currentMenu; //JANKY WAY OF HANDLING BOUNDS
-                            if (currentMenu == APPS.length - 1) {
+                            if (currentMenu > APPS.length -1) {
                                 currentMenu = 0;
+                                System.out.println("currentMenu was equal to 4, now equal to 0");
                             }
                             ilcd.clear();
                             ilcd.setText(currentMenu + 1 + ".)\n" + APPS[currentMenu].getName());
                             break;
                         case UP:
                             ilcd.clear();
-                            System.out.println(currentMenu);
+                            System.out.println("Up: " + currentMenu);
                             currentMenu--;
                             //System.out.println(currentMenu + "UP");
                             //currentMenu = currentMenu == 0?MAX_VALUE:currentMenu; //JANKY WAY OF HANDLING BOUNDS
-                            if (currentMenu == -1) {
+                            if (currentMenu < 0) {
                                 currentMenu = APPS.length -1;
+                                System.out.println("currentMenu was equal to -1, now equal to 3");
                             }
                             ilcd.clear();
                             ilcd.setText(currentMenu + 1 + ".)\n" +APPS[currentMenu].getName());
