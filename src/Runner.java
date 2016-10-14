@@ -67,6 +67,7 @@ public class Runner {
                 }
             }
         });
+        while (true) {} //TODO: stop doing this
     }
     public static void main(String Args[]) throws IOException {
         final ILCD lcd = new RealLCD();
