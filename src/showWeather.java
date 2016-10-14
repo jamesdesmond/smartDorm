@@ -38,12 +38,14 @@ public class showWeather implements LCDApps{
                             ilcd.clear();
                             currentMenu++;
                             currentMenu = (currentMenu > WEATHER_APPS.length - 1)?0:currentMenu;
+                            ilcd.clear();
                             ilcd.setText(WEATHER_APPS[currentMenu].toString());
                             break;
                         case LEFT:
                             ilcd.clear();
                             currentMenu--;
                             currentMenu = (currentMenu < 0)?WEATHER_APPS.length - 1:currentMenu;
+                            ilcd.clear();
                             ilcd.setText(WEATHER_APPS[currentMenu].toString());
                             break;
                     }
