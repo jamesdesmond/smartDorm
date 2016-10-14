@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class Runner {
     private  static final LCDApps[] APPS = new LCDApps[]{
-            new showWeather(),new sendText(Enums.People.CARTER),new sendText(Enums.People.JAMES),new showIP()
+            new showWeather(),new sendText(Enums.People.CARTER),new sendText(Enums.People.JAMES),//new showIP(),new sleepDisplay()
     };
     public static void main(ILCD ilcd) throws IOException {
         int[] currentMenu = {0};
@@ -75,6 +75,6 @@ public class Runner {
     }
     public static void main(String Args[]) throws IOException {
         final ILCD lcd = new RealLCD();
-        main(lcd);
+
     }
 }
