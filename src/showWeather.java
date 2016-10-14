@@ -1,6 +1,9 @@
 import com.github.dvdme.ForecastIOLib.FIOCurrently;
 import com.github.dvdme.ForecastIOLib.FIODaily;
 import com.github.dvdme.ForecastIOLib.ForecastIO;
+import se.hirt.pi.adafruitlcd.Button;
+import se.hirt.pi.adafruitlcd.ButtonListener;
+import se.hirt.pi.adafruitlcd.ButtonPressedObserver;
 import se.hirt.pi.adafruitlcd.ILCD;
 import smartDorm.Enums;
 
@@ -13,11 +16,63 @@ import java.nio.file.Paths;
  */
 
 public class showWeather implements LCDApps{
-    public showWeather(){};
-    //TODO: 5 day forecast
-    private String getWeather () throws IOException {
+    private static final WeatherApps[] WEATHER_APPS = new WeatherApps[] {new  WeatherMainScreen(),new WeatherFiveDay()};
+    private int currentMenu;
+    public showWeather(){
+        currentMenu = 0;
+    };
+    private void menu(ILCD ilcd) throws IOException {
+        ilcd.clear();
+        ilcd.setText(WEATHER_APPS[0].toString());
+        ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
+        observer.addButtonListener(new ButtonListener() {
+            @Override
+            public void onButtonPressed(Button button) {
+                try {
+                    switch (button) {
+                        case RIGHT:
+                            ilcd.clear();
+                            currentMenu++;
+                            currentMenu = (currentMenu > WEATHER_APPS.length - 1)?0:currentMenu;
+                            ilcd.setText(WEATHER_APPS[currentMenu].toString());
+                            break;
+                        case LEFT:
+                            ilcd.clear();
+                            currentMenu--;
+                            currentMenu = (currentMenu < 0)?WEATHER_APPS.length - 1:currentMenu;
+                            ilcd.setText(WEATHER_APPS[currentMenu].toString());
+                            break;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+    @Override
+    public String getName() {
+        return "Weather";
+    }
+
+    @Override
+    public void run(ILCD ilcd) throws IOException {
+        ilcd.setText("Loading...");
+        menu(ilcd);
+    }
+}
+class WeatherMainScreen implements WeatherApps {
+    @Override
+    public String getName() {
+        return "Weather Forecast";
+    }
+    public String toString() {
         //Getting api responses
-        String api = new String(Files.readAllBytes(Paths.get("api.txt")));
+        String api = null;
+        try {
+            api = new String(Files.readAllBytes(Paths.get("api.txt")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         api = api.substring(0,32);
         System.out.println("api: " + api + "length: " + api.length());
         ForecastIO fio = new ForecastIO(api);
@@ -30,11 +85,6 @@ public class showWeather implements LCDApps{
         int lo = (int) Double.parseDouble(daily.getDay(Enums.WeatherInfo.TODAY.getIndex()).getByKey(h[Enums.WeatherInfo.LOW_TEMP.getIndex()])); //low for the day
         int temp = currently.get().temperature().intValue();
         int rain = currently.get().precipProbability().intValue();
-        //DEBUG
-        System.out.println("hi: " + hi);
-        System.out.println("lo: " + lo);
-        System.out.println("temp: " + temp);
-        System.out.println("rain: " + rain);
         //Building output
         String offsetTopRow = "";
         for (int i = 0; i < 3 - String.valueOf(temp).length();i++) {
@@ -50,17 +100,15 @@ public class showWeather implements LCDApps{
                 "NOW:" + temp + offsetTopRow + "   " + "HI:" + hi + "\n" +
                 "RAIN:" + rain + "%" + offsetBottomRow + " " + "LO:" + lo;
     }
+}
+class WeatherFiveDay implements WeatherApps {
 
     @Override
     public String getName() {
-        return "Weather";
+        return "5 Day Forecast";
     }
-
-    @Override
-    public void run(ILCD ilcd) throws IOException {
-        //Setting up
-        ilcd.clear();
-        ilcd.setText("Loading...");
-        ilcd.setText(getWeather());
+    public String toString() {
+        //TODO:5 day forecast
+        return "TODO";
     }
 }
