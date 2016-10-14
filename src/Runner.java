@@ -66,9 +66,6 @@ public class Runner {
                                 break;
                         }
                     } else {
-                        ilcd.clear();
-                        ilcd.setText(":)");
-
                         if (button == Button.UP) {
                             inApp[0] = false;
                         }
