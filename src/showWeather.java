@@ -10,13 +10,17 @@ import smartDorm.Enums;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.Instant;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by james on 9/24/16.
  */
 
 public class showWeather implements LCDApps{
-    private static final WeatherApps[] WEATHER_APPS = new WeatherApps[] {new  WeatherMainScreen(),new WeatherFiveDay()};
+    private static final WeatherApps[] WEATHER_APPS = new WeatherApps[] {new  WeatherMainScreen(),new WeatherSixDay()};
     private int currentMenu;
     public showWeather(){
         currentMenu = 0;
@@ -101,14 +105,40 @@ class WeatherMainScreen implements WeatherApps {
                 "RAIN:" + rain + "%" + offsetBottomRow + " " + "LO:" + lo;
     }
 }
-class WeatherFiveDay implements WeatherApps {
+class WeatherSixDay implements WeatherApps {
 
     @Override
     public String getName() {
-        return "5 Day Forecast";
+        return "6 Day Forecast";
     }
     public String toString() {
-        //TODO:5 day forecast
-        return "TODO";
+        String[] daysOfTheWeek = new String[] {"S","M","T","W","T","F","S","S","M","T","W","T","F","S"};
+        String[] dayFirstLetter = new String[6];
+        int startDay = Calendar.DAY_OF_WEEK;
+        for (int i = 0; i < 6; i++) {
+            dayFirstLetter[i] = daysOfTheWeek[Calendar.DAY_OF_WEEK - 1 + i];
+        }
+        System.out.println(Arrays.toString(dayFirstLetter));
+
+        String api = null;
+        try {
+            api = new String(Files.readAllBytes(Paths.get("api.txt")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        api = api.substring(0,32);
+        System.out.println("api: " + api + "length: " + api.length());
+        ForecastIO fio = new ForecastIO(api);
+        fio.setUnits(ForecastIO.UNITS_US);             //sets the units as SI - optional
+        fio.getForecast("42.3605","-71.0596");
+        FIODaily daily = new FIODaily(fio);
+        int[] temperatures = new int[6];
+        for (int i = 0; i < 6; i ++) {
+            int todaysTemp = daily.getDay(i+1).temperature().intValue();
+            temperatures[i] = (todaysTemp >= 100)?99:todaysTemp; //Screen is too small to fit values > 99
+        }
+        String topRow    = dayFirstLetter[0] + ":" + temperatures[0] + " " + dayFirstLetter[1] + ":" + temperatures[1] + " " + dayFirstLetter[2] + ":" + temperatures[2] + "\n";
+        String bottomRow = dayFirstLetter[3] + ":" + temperatures[3] + " " + dayFirstLetter[4] + ":" + temperatures[4] + " " + dayFirstLetter[5] + ":" + temperatures[5];
+        return topRow + bottomRow;
     }
 }

@@ -14,6 +14,7 @@ public class Runner {
     };
     private boolean inApp;
     private int currentMenu;
+
     public Runner() {
         inApp = false;
         currentMenu = 0;
