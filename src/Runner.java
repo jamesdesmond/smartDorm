@@ -41,6 +41,7 @@ public class Runner {
                             }
                             ilcd.clear();
                             ilcd.setText(currentMenu[0] + 1 + ".)\n" + APPS[currentMenu[0]].getName());
+                            System.out.println("DONE WITH DOWN CASE");
                             break;
                         case UP:
                             ilcd.clear();
@@ -55,6 +56,7 @@ public class Runner {
                             }
                             ilcd.clear();
                             ilcd.setText(currentMenu[0] + 1 + ".)\n" +APPS[currentMenu[0]].getName());
+                            System.out.println("DONE WITH UP CASE");
                             break;
                         case SELECT:
                             APPS[currentMenu[0]].run(ilcd);
