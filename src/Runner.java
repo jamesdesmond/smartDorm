@@ -33,11 +33,13 @@ public class Runner {
                         case DOWN:
                             ilcd.clear();
                             System.out.println(currentMenu);
-                            currentMenu++;
-                            System.out.println(currentMenu + "DOWN");
+                            //currentMenu++;
+                            //System.out.println(currentMenu + "DOWN");
                             //currentMenu = currentMenu == MAX_VALUE?0:currentMenu; //JANKY WAY OF HANDLING BOUNDS
                             if (currentMenu == APPS.length -1) {
                                 currentMenu = 0;
+                            } else {
+                                currentMenu++;
                             }
                             ilcd.clear();
                             ilcd.setText(currentMenu + 1 + ".)\n" + APPS[currentMenu].getName());
@@ -45,11 +47,13 @@ public class Runner {
                         case UP:
                             ilcd.clear();
                             System.out.println(currentMenu);
-                            currentMenu--;
-                            System.out.println(currentMenu + "UP");
+                            //currentMenu--;
+                            //System.out.println(currentMenu + "UP");
                             //currentMenu = currentMenu == 0?MAX_VALUE:currentMenu; //JANKY WAY OF HANDLING BOUNDS
                             if (currentMenu == -1) {
                                 currentMenu = APPS.length -1;
+                            } else {
+                                currentMenu --;
                             }
                             ilcd.clear();
                             ilcd.setText(currentMenu + 1 + ".)\n" +APPS[currentMenu].getName());
