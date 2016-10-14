@@ -13,7 +13,6 @@ public class Runner {
             new showWeather(),new sendText(Enums.People.CARTER),new sendText(Enums.People.JAMES),new showIP()
     };
     public static void main(ILCD ilcd) throws IOException {
-        int MAX_VALUE = 3;
         ilcd.setBacklight(Color.RED);
         ilcd.setText("This is the \n start screen");
         ilcd.clear();
@@ -36,7 +35,10 @@ public class Runner {
                             System.out.println(currentMenu);
                             currentMenu++;
                             System.out.println(currentMenu + "DOWN");
-                            currentMenu = currentMenu == MAX_VALUE?0:currentMenu; //JANKY WAY OF HANDLING BOUNDS
+                            //currentMenu = currentMenu == MAX_VALUE?0:currentMenu; //JANKY WAY OF HANDLING BOUNDS
+                            if (currentMenu == APPS.length -1) {
+                                currentMenu = 0;
+                            }
                             ilcd.clear();
                             ilcd.setText(currentMenu + 1 + ".)\n" + APPS[currentMenu].getName());
                             break;
@@ -45,7 +47,10 @@ public class Runner {
                             System.out.println(currentMenu);
                             currentMenu--;
                             System.out.println(currentMenu + "UP");
-                            currentMenu = currentMenu == -1?MAX_VALUE:currentMenu; //JANKY WAY OF HANDLING BOUNDS
+                            //currentMenu = currentMenu == 0?MAX_VALUE:currentMenu; //JANKY WAY OF HANDLING BOUNDS
+                            if (currentMenu == -1) {
+                                currentMenu = APPS.length -1;
+                            }
                             ilcd.clear();
                             ilcd.setText(currentMenu + 1 + ".)\n" +APPS[currentMenu].getName());
                             break;
