@@ -5,8 +5,15 @@ package smartDorm;
  */
 public class Enums {
     public enum People {
-        JAMES,
-        CARTER
+        //TODO: implement commented out section
+        JAMES,//("foo@bar.com"),
+        CARTER,//("stuff@things.net");
+
+        /*People(String email) {
+            this.email = email;
+        }
+
+        final public String email;*/
     }
     public enum WeatherInfo {
         TODAY (0),
