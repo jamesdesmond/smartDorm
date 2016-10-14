@@ -45,7 +45,7 @@ public class Runner {
                             System.out.println(currentMenu);
                             currentMenu--;
                             System.out.println(currentMenu + "UP");
-                            currentMenu = currentMenu == 0?MAX_VALUE:currentMenu; //JANKY WAY OF HANDLING BOUNDS
+                            currentMenu = currentMenu == -1?MAX_VALUE:currentMenu; //JANKY WAY OF HANDLING BOUNDS
                             ilcd.clear();
                             ilcd.setText(currentMenu + 1 + ".)\n" +APPS[currentMenu].getName());
                             break;
