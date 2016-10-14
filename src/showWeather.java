@@ -134,7 +134,7 @@ class WeatherSixDay implements WeatherApps {
         FIODaily daily = new FIODaily(fio);
         int[] temperatures = new int[6];
         for (int i = 0; i < 6; i ++) {
-            int todaysTemp = daily.getDay(i+1).temperature().intValue();
+            int todaysTemp = daily.getDay(i+1).temperatureMax().intValue();
             temperatures[i] = (todaysTemp >= 100)?99:todaysTemp; //Screen is too small to fit values > 99
         }
         String topRow    = dayFirstLetter[0] + ":" + temperatures[0] + " " + dayFirstLetter[1] + ":" + temperatures[1] + " " + dayFirstLetter[2] + ":" + temperatures[2] + "\n";
