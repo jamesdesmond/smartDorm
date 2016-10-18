@@ -4,6 +4,7 @@
 import se.hirt.pi.adafruitlcd.*;
 import se.hirt.pi.adafruitlcd.impl.RealLCD;
 import smartDorm.Enums;
+import smartDorm.LCDApps;
 
 import java.io.IOException;
 
@@ -75,6 +76,7 @@ public class Runner {
                     } else {
                         if (button == Button.UP || button == Button.DOWN) {
                             setInApp(false);
+                            ilcd.clear();
                             ilcd.setText(currentMenu + 1 + ".)\n" + APPS[currentMenu].getName());
                         }
                     }

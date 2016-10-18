@@ -6,20 +6,20 @@ import se.hirt.pi.adafruitlcd.ButtonListener;
 import se.hirt.pi.adafruitlcd.ButtonPressedObserver;
 import se.hirt.pi.adafruitlcd.ILCD;
 import smartDorm.Enums;
+import smartDorm.LCDApps;
+import smartDorm.WeatherApps;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.Instant;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by james on 9/24/16.
  */
 
-public class showWeather implements LCDApps{
+public class showWeather implements LCDApps {
     private static final WeatherApps[] WEATHER_APPS = new WeatherApps[] {new  WeatherMainScreen(),new WeatherSixDay()};
     private int currentMenu;
     public showWeather(){
@@ -27,6 +27,7 @@ public class showWeather implements LCDApps{
     };
     private void menu(ILCD ilcd) throws IOException {
         ilcd.clear();
+        ilcd.setText("Loading...");
         ilcd.setText(WEATHER_APPS[0].toString());
         ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
         observer.addButtonListener(new ButtonListener() {
@@ -62,6 +63,7 @@ public class showWeather implements LCDApps{
 
     @Override
     public void run(ILCD ilcd) throws IOException {
+        ilcd.clear();
         ilcd.setText("Loading...");
         menu(ilcd);
     }

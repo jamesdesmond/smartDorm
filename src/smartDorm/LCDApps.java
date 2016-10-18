@@ -1,3 +1,5 @@
+package smartDorm;
+
 import se.hirt.pi.adafruitlcd.ILCD;
 
 import java.io.IOException;
