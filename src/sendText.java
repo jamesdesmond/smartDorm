@@ -42,15 +42,13 @@ public class sendText implements LCDApps {
         return "Text " + person;
     }
 
-    @Override
-    public void run (ILCD ilcd) throws IOException {
+    private void menu(ILCD ilcd)throws IOException {
         ilcd.setBacklight(Color.GREEN);
         ilcd.clear();
         System.out.println("1");
         ilcd.setText("Loading...");
         System.out.println("2");
         //ilcd.setText(messages[0]);
-        System.out.println("3");
         ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
         observer.addButtonListener(new ButtonListener() {
             @Override
@@ -94,4 +92,10 @@ public class sendText implements LCDApps {
         });
         ilcd.clear();
     }
+    @Override
+    public void run (ILCD ilcd) throws IOException {
+        ilcd.clear();
+        menu(ilcd);
+    }
+
 }
