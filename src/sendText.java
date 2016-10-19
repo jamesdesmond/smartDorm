@@ -43,12 +43,7 @@ public class sendText implements LCDApps {
     }
 
     private void menu(ILCD ilcd)throws IOException {
-        ilcd.setBacklight(Color.GREEN);
-        ilcd.clear();
-        System.out.println("1");
-        ilcd.setText("Loading...");
-        System.out.println("2");
-        //ilcd.setText(messages[0]);
+        ilcd.setText(messages[0].toString());
         ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
         observer.addButtonListener(new ButtonListener() {
             @Override
