@@ -29,7 +29,7 @@ public class showWeather implements LCDApps {
     };
     private void menu(ILCD ilcd) throws IOException {
         ilcd.clear();
-        ilcd.setText("Loading...");
+        ilcd.setText("2Loading...");
         ilcd.setText(WEATHER_APPS[0].toString());
         ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
         observer.addButtonListener(new ButtonListener() {
