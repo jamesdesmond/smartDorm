@@ -43,7 +43,8 @@ public class sendText implements LCDApps {
     }
 
     private void menu(ILCD ilcd)throws IOException {
-        ilcd.setText(messages[0].toString());
+        ilcd.clear();
+        ilcd.setText(messages[0]);
         ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
         observer.addButtonListener(new ButtonListener() {
             @Override
@@ -90,6 +91,7 @@ public class sendText implements LCDApps {
     @Override
     public void run (ILCD ilcd) throws IOException {
         ilcd.clear();
+        ilcd.setText(messages[0]);
         menu(ilcd);
     }
 
