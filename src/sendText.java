@@ -48,8 +48,11 @@ public class sendText implements LCDApps {
     @Override
     public void run (ILCD ilcd) throws IOException {
         ilcd.clear();
+        System.out.println("1");
         ilcd.setText("Loading...");
+        System.out.println("2");
         ilcd.setText(messages[0]);
+        System.out.println("3");
         ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
         observer.addButtonListener(new ButtonListener() {
             @Override
