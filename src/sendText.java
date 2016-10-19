@@ -10,7 +10,7 @@ import java.io.IOException;
 public class sendText implements LCDApps {
     private int currentMenu;
     private Enums.People person;
-    private String[] messages = {"Let me know when\nyou're back","I need the room\nfor a little bit","Staying at Aly's\ntonight","Going out to\nskate","Test"}; //Remember that its a 16x2 display
+    private static final String[] messages = {"Let me know when\nyou're back","I need the room\nfor a little bit","Staying at Aly's\ntonight","Going out to\nskate","Test"}; //Remember that its a 16x2 display
     private boolean inApp;
     public sendText() {
         this.person = Enums.People.JAMES;
