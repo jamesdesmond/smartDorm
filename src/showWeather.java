@@ -22,8 +22,10 @@ import java.util.Calendar;
 public class showWeather implements LCDApps {
     private static final WeatherApps[] WEATHER_APPS = new WeatherApps[] {new  WeatherMainScreen(),new WeatherSixDay()};
     private int currentMenu;
+    private boolean inApp;
     public showWeather(){
         currentMenu = 0;
+        inApp = true;
     };
     private void menu(ILCD ilcd) throws IOException {
         ilcd.clear();
@@ -34,21 +36,29 @@ public class showWeather implements LCDApps {
             @Override
             public void onButtonPressed(Button button) {
                 try {
-                    switch (button) {
-                        case RIGHT:
-                            ilcd.clear();
-                            currentMenu++;
-                            currentMenu = (currentMenu > WEATHER_APPS.length - 1)?0:currentMenu;
-                            ilcd.clear();
-                            ilcd.setText(WEATHER_APPS[currentMenu].toString());
-                            break;
-                        case LEFT:
-                            ilcd.clear();
-                            currentMenu--;
-                            currentMenu = (currentMenu < 0)?WEATHER_APPS.length - 1:currentMenu;
-                            ilcd.clear();
-                            ilcd.setText(WEATHER_APPS[currentMenu].toString());
-                            break;
+                    if (inApp) {
+                        switch (button) {
+                            case RIGHT:
+                                ilcd.clear();
+                                currentMenu++;
+                                currentMenu = (currentMenu > WEATHER_APPS.length - 1) ? 0 : currentMenu;
+                                ilcd.clear();
+                                ilcd.setText(WEATHER_APPS[currentMenu].toString());
+                                break;
+                            case LEFT:
+                                ilcd.clear();
+                                currentMenu--;
+                                currentMenu = (currentMenu < 0) ? WEATHER_APPS.length - 1 : currentMenu;
+                                ilcd.clear();
+                                ilcd.setText(WEATHER_APPS[currentMenu].toString());
+                                break;
+                            case UP:
+                                inApp = false;
+                                break;
+                            case DOWN:
+                                inApp = false;
+                                break;
+                        }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

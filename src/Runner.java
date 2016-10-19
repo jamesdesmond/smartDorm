@@ -21,7 +21,6 @@ public class Runner {
         currentMenu = 0;
     }
     private void menu(ILCD ilcd) throws IOException {
-        //int[] currentMenu = {0};
         ilcd.setBacklight(Color.RED);
         ilcd.setText("This is the \n start screen");
         ilcd.clear();
