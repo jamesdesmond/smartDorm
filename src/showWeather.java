@@ -65,6 +65,7 @@ public class showWeather implements LCDApps {
                 }
             }
         });
+        ilcd.clear();
     }
     @Override
     public String getName() {
