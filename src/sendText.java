@@ -13,7 +13,7 @@ import java.io.IOException;
 public class sendText implements LCDApps {
     private int currentMenu;
     private Enums.People person;
-    private String[] messages = {"Let me know when\nyou're back","I need the room\nfor a little bit","Staying at Aly's\ntonight","Going out to skate","Test"}; //Remember that its a 16x2 display
+    private String[] messages = {"Let me know when\nyou're back","I need the room\nfor a little bit","Staying at Aly's\ntonight","Going out to\nskate","Test"}; //Remember that its a 16x2 display
     private boolean inApp;
     public sendText() {
         this.person = Enums.People.JAMES;
@@ -49,7 +49,7 @@ public class sendText implements LCDApps {
     public void run (ILCD ilcd) throws IOException {
         ilcd.clear();
         ilcd.setText("Loading...");
-        ilcd.setText(messages[currentMenu]);
+        ilcd.setText(messages[0]);
         ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
         observer.addButtonListener(new ButtonListener() {
             @Override
