@@ -45,7 +45,7 @@ public class sendText implements LCDApps {
     private void menu(ILCD ilcd)throws IOException {
         ilcd.clear();
         ilcd.setText("Use Right & Left\nto select msg");
-        //ilcd.setText(messages[0]);
+        ilcd.setText(messages[0]);
         ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
         observer.addButtonListener(new ButtonListener() {
             @Override
@@ -58,14 +58,14 @@ public class sendText implements LCDApps {
                                 currentMenu++;
                                 currentMenu = (currentMenu > messages.length - 1) ? 0 : currentMenu;
                                 ilcd.clear();
-                                ilcd.setText(messages[currentMenu].toString());
+                                ilcd.setText(messages[currentMenu]);
                                 break;
                             case LEFT:
                                 ilcd.clear();
                                 currentMenu--;
                                 currentMenu = (currentMenu < 0) ? messages.length - 1 : currentMenu;
                                 ilcd.clear();
-                                ilcd.setText(messages[currentMenu].toString());
+                                ilcd.setText(messages[currentMenu]);
                                 break;
                             case SELECT:
                                 ilcd.clear();
