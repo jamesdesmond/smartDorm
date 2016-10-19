@@ -1,7 +1,4 @@
-import se.hirt.pi.adafruitlcd.Button;
-import se.hirt.pi.adafruitlcd.ButtonListener;
-import se.hirt.pi.adafruitlcd.ButtonPressedObserver;
-import se.hirt.pi.adafruitlcd.ILCD;
+import se.hirt.pi.adafruitlcd.*;
 import smartDorm.Enums;
 import smartDorm.LCDApps;
 
@@ -47,6 +44,7 @@ public class sendText implements LCDApps {
 
     @Override
     public void run (ILCD ilcd) throws IOException {
+        ilcd.setBacklight(Color.GREEN);
         ilcd.clear();
         System.out.println("1");
         ilcd.setText("Loading...");
