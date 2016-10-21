@@ -11,17 +11,14 @@ public class sendText implements LCDApps {
     private int currentMenu;
     private Enums.People person;
     private static final String[] messages = {"Let me know when\nyou're back","I need the room\nfor a little bit","Staying at Aly's\ntonight","Going out to\nskate","Test"}; //Remember that its a 16x2 display
-    private boolean inApp;
     public sendText() {
         this.person = Enums.People.JAMES;
         currentMenu = 0;
-        inApp = true;
     }
 
     public sendText(Enums.People person) {
         this.person = person;
         currentMenu = 0;
-        inApp = true;
     };
 
     private  void sendText(String address, String message) {
@@ -47,7 +44,6 @@ public class sendText implements LCDApps {
         ilcd.setText("Use Right & Left\nto select msg");
         ilcd.setText(messages[0]);
             try {
-                if (inApp) {
                     switch (button) {
                         case RIGHT:
                             ilcd.clear();
@@ -70,14 +66,7 @@ public class sendText implements LCDApps {
                             ilcd.clear();
                             ilcd.setText("Sent!");
                             break;
-                        case UP:
-                            inApp = false;
-                            break;
-                        case DOWN:
-                            inApp = false;
-                            break;
                     }
-                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

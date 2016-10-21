@@ -20,15 +20,12 @@ import java.util.Calendar;
 public class showWeather implements LCDApps {
     private static final WeatherApps[] WEATHER_APPS = new WeatherApps[] {new  WeatherMainScreen(),new WeatherSixDay()};
     private int currentMenu;
-    private boolean inApp;
     public showWeather(){
         currentMenu = 0;
-        inApp = true;
     };
     private void menu(ILCD ilcd,Button button) throws IOException {
-        //ilcd.setText(WEATHER_APPS[0].toString());
+        ilcd.setText(WEATHER_APPS[0].toString());
             try {
-                if (inApp) {
                     switch (button) {
                         case RIGHT:
                             ilcd.clear();
@@ -44,14 +41,7 @@ public class showWeather implements LCDApps {
                             ilcd.clear();
                             ilcd.setText(WEATHER_APPS[currentMenu].toString());
                             break;
-                        case UP:
-                            inApp = false;
-                            break;
-                        case DOWN:
-                            inApp = false;
-                            break;
                     }
-                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
