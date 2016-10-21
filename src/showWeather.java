@@ -2,8 +2,6 @@ import com.github.dvdme.ForecastIOLib.FIOCurrently;
 import com.github.dvdme.ForecastIOLib.FIODaily;
 import com.github.dvdme.ForecastIOLib.ForecastIO;
 import se.hirt.pi.adafruitlcd.Button;
-import se.hirt.pi.adafruitlcd.ButtonListener;
-import se.hirt.pi.adafruitlcd.ButtonPressedObserver;
 import se.hirt.pi.adafruitlcd.ILCD;
 import smartDorm.Enums;
 import smartDorm.LCDApps;
@@ -27,44 +25,36 @@ public class showWeather implements LCDApps {
         currentMenu = 0;
         inApp = true;
     };
-    private void menu(ILCD ilcd) throws IOException {
-        //ilcd.clear();
-        //ilcd.setText("Loading...");
+    private void menu(ILCD ilcd,Button button) throws IOException {
         ilcd.setText(WEATHER_APPS[0].toString());
-        ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
-        observer.addButtonListener(new ButtonListener() {
-            @Override
-            public void onButtonPressed(Button button) {
-                try {
-                    if (inApp) {
-                        switch (button) {
-                            case RIGHT:
-                                ilcd.clear();
-                                currentMenu++;
-                                currentMenu = (currentMenu > WEATHER_APPS.length - 1) ? 0 : currentMenu;
-                                ilcd.clear();
-                                ilcd.setText(WEATHER_APPS[currentMenu].toString());
-                                break;
-                            case LEFT:
-                                ilcd.clear();
-                                currentMenu--;
-                                currentMenu = (currentMenu < 0) ? WEATHER_APPS.length - 1 : currentMenu;
-                                ilcd.clear();
-                                ilcd.setText(WEATHER_APPS[currentMenu].toString());
-                                break;
-                            case UP:
-                                inApp = false;
-                                break;
-                            case DOWN:
-                                inApp = false;
-                                break;
-                        }
+            try {
+                if (inApp) {
+                    switch (button) {
+                        case RIGHT:
+                            ilcd.clear();
+                            currentMenu++;
+                            currentMenu = (currentMenu > WEATHER_APPS.length - 1) ? 0 : currentMenu;
+                            ilcd.clear();
+                            ilcd.setText(WEATHER_APPS[currentMenu].toString());
+                            break;
+                        case LEFT:
+                            ilcd.clear();
+                            currentMenu--;
+                            currentMenu = (currentMenu < 0) ? WEATHER_APPS.length - 1 : currentMenu;
+                            ilcd.clear();
+                            ilcd.setText(WEATHER_APPS[currentMenu].toString());
+                            break;
+                        case UP:
+                            inApp = false;
+                            break;
+                        case DOWN:
+                            inApp = false;
+                            break;
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        });
         ilcd.clear();
     }
     @Override
@@ -73,10 +63,10 @@ public class showWeather implements LCDApps {
     }
 
     @Override
-    public void run(ILCD ilcd) throws IOException {
+    public void run(ILCD ilcd, Button button) throws IOException {
         ilcd.clear();
         ilcd.setText("Loading...");
-        menu(ilcd);
+        menu(ilcd,button);
     }
 }
 class WeatherMainScreen implements WeatherApps {

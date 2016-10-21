@@ -1,5 +1,6 @@
 package smartDorm;
 
+import se.hirt.pi.adafruitlcd.Button;
 import se.hirt.pi.adafruitlcd.ILCD;
 
 import java.io.IOException;
@@ -10,5 +11,5 @@ import java.io.IOException;
 public interface LCDApps {
     String getName();
 
-    void run(ILCD ilcd) throws IOException;
+    void run(ILCD ilcd,Button button) throws IOException;
 }

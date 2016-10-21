@@ -1,3 +1,4 @@
+import se.hirt.pi.adafruitlcd.Button;
 import se.hirt.pi.adafruitlcd.ILCD;
 import smartDorm.LCDApps;
 import smartDorm.Util;
@@ -19,7 +20,7 @@ public class showIP implements LCDApps {
         return "Show IP Address";
     }
     @Override
-    public void run (ILCD ilcd) throws IOException {
+    public void run (ILCD ilcd, Button button) throws IOException {
         ilcd.clear();
         ilcd.setText("IP Address:\n" + getIP());
     }

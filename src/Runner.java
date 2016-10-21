@@ -64,7 +64,7 @@ public class Runner {
                                 System.out.println("DONE WITH UP CASE");
                                 break;
                             case SELECT:
-                                APPS[currentMenu].run(ilcd);
+                                APPS[currentMenu].run(ilcd,button);
                                 inApp = true;
                                 break;
                             default:
@@ -74,7 +74,8 @@ public class Runner {
                         }
                     } else {
                         if (button == Button.UP || button == Button.DOWN) {
-                            setInApp(false);
+                            inApp = false;
+                            APPS[currentMenu].run(ilcd,button);
                             ilcd.clear();
                             ilcd.setText(currentMenu + 1 + ".)\n" + APPS[currentMenu].getName());
                         }
@@ -89,8 +90,5 @@ public class Runner {
     public static void main(String Args[]) throws IOException {
         final ILCD ilcd = new RealLCD();
         new Runner().menu(ilcd);
-    }
-    public void setInApp(boolean value) {
-        inApp = value;
     }
 }
