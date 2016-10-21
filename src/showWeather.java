@@ -26,7 +26,7 @@ public class showWeather implements LCDApps {
         inApp = true;
     };
     private void menu(ILCD ilcd,Button button) throws IOException {
-        ilcd.setText(WEATHER_APPS[0].toString());
+        //ilcd.setText(WEATHER_APPS[0].toString());
             try {
                 if (inApp) {
                     switch (button) {
@@ -64,8 +64,8 @@ public class showWeather implements LCDApps {
 
     @Override
     public void run(ILCD ilcd, Button button) throws IOException {
-        ilcd.clear();
-        ilcd.setText("Loading...");
+        //ilcd.clear();
+        //ilcd.setText("Loading...");
         menu(ilcd,button);
     }
 }

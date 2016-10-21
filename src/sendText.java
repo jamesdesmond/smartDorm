@@ -85,8 +85,8 @@ public class sendText implements LCDApps {
     }
     @Override
     public void run (ILCD ilcd, Button button) throws IOException {
-        ilcd.clear();
-        ilcd.setText("Use Right & Left\nto select msg");
+        //ilcd.clear();
+        //ilcd.setText("Use Right & Left\nto select msg");
         menu(ilcd , button);
     }
 
