@@ -75,9 +75,10 @@ public class Runner {
                     } else {
                         if (button == Button.UP || button == Button.DOWN) {
                             inApp = false;
-                            //APPS[currentMenu].run(ilcd,button);
                             ilcd.clear();
                             ilcd.setText(currentMenu + 1 + ".)\n" + APPS[currentMenu].getName());
+                        } else {
+                            APPS[currentMenu].run(ilcd,button);
                         }
                     }
                 } catch (IOException e) {

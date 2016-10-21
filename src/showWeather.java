@@ -26,22 +26,22 @@ public class showWeather implements LCDApps {
     private void menu(ILCD ilcd,Button button) throws IOException {
         ilcd.setText(WEATHER_APPS[0].toString());
             try {
-                    switch (button) {
-                        case RIGHT:
-                            ilcd.clear();
-                            currentMenu++;
-                            currentMenu = (currentMenu > WEATHER_APPS.length - 1) ? 0 : currentMenu;
-                            ilcd.clear();
-                            ilcd.setText(WEATHER_APPS[currentMenu].toString());
-                            break;
-                        case LEFT:
-                            ilcd.clear();
-                            currentMenu--;
-                            currentMenu = (currentMenu < 0) ? WEATHER_APPS.length - 1 : currentMenu;
-                            ilcd.clear();
-                            ilcd.setText(WEATHER_APPS[currentMenu].toString());
-                            break;
-                    }
+                switch (button) {
+                    case RIGHT:
+                        ilcd.clear();
+                        currentMenu++;
+                        currentMenu = (currentMenu > WEATHER_APPS.length - 1) ? 0 : currentMenu;
+                        ilcd.clear();
+                        ilcd.setText(WEATHER_APPS[currentMenu].toString());
+                        break;
+                    case LEFT:
+                        ilcd.clear();
+                        currentMenu--;
+                        currentMenu = (currentMenu < 0) ? WEATHER_APPS.length - 1 : currentMenu;
+                        ilcd.clear();
+                        ilcd.setText(WEATHER_APPS[currentMenu].toString());
+                        break;
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

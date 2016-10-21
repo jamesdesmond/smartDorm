@@ -44,29 +44,29 @@ public class sendText implements LCDApps {
         ilcd.setText("Use Right & Left\nto select msg");
         ilcd.setText(messages[0]);
             try {
-                    switch (button) {
-                        case RIGHT:
-                            ilcd.clear();
-                            currentMenu++;
-                            currentMenu = (currentMenu > messages.length - 1) ? 0 : currentMenu;
-                            ilcd.clear();
-                            ilcd.setText(messages[currentMenu]);
-                            break;
-                        case LEFT:
-                            ilcd.clear();
-                            currentMenu--;
-                            currentMenu = (currentMenu < 0) ? messages.length - 1 : currentMenu;
-                            ilcd.clear();
-                            ilcd.setText(messages[currentMenu]);
-                            break;
-                        case SELECT:
-                            ilcd.clear();
-                            ilcd.setText("Loading...");
-                            sendText(person.email, messages[currentMenu]);
-                            ilcd.clear();
-                            ilcd.setText("Sent!");
-                            break;
-                    }
+                switch (button) {
+                    case RIGHT:
+                        ilcd.clear();
+                        currentMenu++;
+                        currentMenu = (currentMenu > messages.length - 1) ? 0 : currentMenu;
+                        ilcd.clear();
+                        ilcd.setText(messages[currentMenu]);
+                        break;
+                    case LEFT:
+                        ilcd.clear();
+                        currentMenu--;
+                        currentMenu = (currentMenu < 0) ? messages.length - 1 : currentMenu;
+                        ilcd.clear();
+                        ilcd.setText(messages[currentMenu]);
+                        break;
+                    case SELECT:
+                        ilcd.clear();
+                        ilcd.setText("Loading...");
+                        sendText(person.email, messages[currentMenu]);
+                        ilcd.clear();
+                        ilcd.setText("Sent!");
+                        break;
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
