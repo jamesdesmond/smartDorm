@@ -113,8 +113,9 @@ class WeatherSixDay implements WeatherApps {
         String[] daysOfTheWeek = new String[] {"S","M","T","W","T","F","S","S","M","T","W","T","F","S"};
         String[] dayFirstLetter = new String[6];
         int startDay = Calendar.DAY_OF_WEEK;
+        System.out.println("startDay: " + startDay);
         for (int i = 0; i < 6; i++) {
-            dayFirstLetter[i] = daysOfTheWeek[Calendar.DAY_OF_WEEK - 1 + i];
+            dayFirstLetter[i] = daysOfTheWeek[startDay - 1 + i];
         }
         System.out.println(Arrays.toString(dayFirstLetter));
 
