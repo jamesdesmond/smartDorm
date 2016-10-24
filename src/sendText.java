@@ -46,21 +46,21 @@ public class sendText implements LCDApps {
             try {
                 switch (button) {
                     case RIGHT:
-                        ilcd.clear();
+                        //ilcd.clear();
                         currentMenu++;
                         currentMenu = (currentMenu > messages.length - 1) ? 0 : currentMenu;
                         ilcd.clear();
                         ilcd.setText(messages[currentMenu]);
                         break;
                     case LEFT:
-                        ilcd.clear();
+                        //ilcd.clear();
                         currentMenu--;
                         currentMenu = (currentMenu < 0) ? messages.length - 1 : currentMenu;
                         ilcd.clear();
                         ilcd.setText(messages[currentMenu]);
                         break;
                     case SELECT:
-                        ilcd.clear();
+                        //ilcd.clear();
                         ilcd.setText("Loading...");
                         sendText(person.email, messages[currentMenu]);
                         ilcd.clear();
@@ -70,7 +70,7 @@ public class sendText implements LCDApps {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        ilcd.clear();
+        //ilcd.clear();
     }
     @Override
     public void run (ILCD ilcd, Button button) throws IOException {

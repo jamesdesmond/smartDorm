@@ -38,7 +38,7 @@ public class Runner {
                             case RIGHT:
                                 break;
                             case DOWN:
-                                ilcd.clear();
+                                //ilcd.clear();
                                 System.out.println("Down: " + currentMenu);
                                 currentMenu++;
                                 System.out.println("current menu is now: " + currentMenu);
@@ -51,7 +51,7 @@ public class Runner {
                                 System.out.println("DONE WITH DOWN CASE");
                                 break;
                             case UP:
-                                ilcd.clear();
+                                //ilcd.clear();
                                 System.out.println("Up: " + currentMenu);
                                 currentMenu--;
                                 System.out.println("current menu is now: " + currentMenu);

@@ -28,14 +28,14 @@ public class showWeather implements LCDApps {
             try {
                 switch (button) {
                     case RIGHT:
-                        ilcd.clear();
+                        //ilcd.clear();
                         currentMenu++;
                         currentMenu = (currentMenu > WEATHER_APPS.length - 1) ? 0 : currentMenu;
                         ilcd.clear();
                         ilcd.setText(WEATHER_APPS[currentMenu].toString());
                         break;
                     case LEFT:
-                        ilcd.clear();
+                        //ilcd.clear();
                         currentMenu--;
                         currentMenu = (currentMenu < 0) ? WEATHER_APPS.length - 1 : currentMenu;
                         ilcd.clear();
@@ -45,7 +45,7 @@ public class showWeather implements LCDApps {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        ilcd.clear();
+        //ilcd.clear();
     }
     @Override
     public String getName() {
