@@ -59,6 +59,7 @@ public class showWeather implements LCDApps {
     public void run(ILCD ilcd) throws IOException {
         ilcd.clear();
         ilcd.setText("Loading...");
+        ilcd.setText(WEATHER_APPS[0].toString());
     }
 }
 class WeatherMainScreen implements WeatherApps {

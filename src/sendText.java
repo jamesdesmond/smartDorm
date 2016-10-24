@@ -57,7 +57,7 @@ public class sendText implements LCDApps {
                         ilcd.setText(messages[currentMenu]);
                         break;
                     case SELECT:
-                        //ilcd.clear();
+                        ilcd.clear();
                         ilcd.setText("Loading...");
                         sendText(person.email, messages[currentMenu]);
                         ilcd.clear();
