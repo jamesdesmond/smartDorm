@@ -40,9 +40,6 @@ public class sendText implements LCDApps {
     }
 
     private void menu(ILCD ilcd, Button button)throws IOException {
-        ilcd.clear();
-        ilcd.setText("Use Right & Left\nto select msg");
-        ilcd.setText(messages[0]);
             try {
                 switch (button) {
                     case RIGHT:
@@ -77,6 +74,10 @@ public class sendText implements LCDApps {
         //ilcd.clear();
         //ilcd.setText("Use Right & Left\nto select msg");
         menu(ilcd , button);
+    }
+    public void run (ILCD ilcd) throws IOException {
+        ilcd.clear();
+        ilcd.setText("Use Right & Left\nto select msg");
     }
 
 }

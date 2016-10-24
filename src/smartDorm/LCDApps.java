@@ -12,4 +12,5 @@ public interface LCDApps {
     String getName();
 
     void run(ILCD ilcd,Button button) throws IOException;
+    void run(ILCD ilcd) throws IOException;
 }

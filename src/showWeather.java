@@ -54,9 +54,11 @@ public class showWeather implements LCDApps {
 
     @Override
     public void run(ILCD ilcd, Button button) throws IOException {
-        //ilcd.clear();
-        //ilcd.setText("Loading...");
         menu(ilcd,button);
+    }
+    public void run(ILCD ilcd) throws IOException {
+        ilcd.clear();
+        ilcd.setText("Loading...");
     }
 }
 class WeatherMainScreen implements WeatherApps {

@@ -64,7 +64,7 @@ public class Runner {
                                 System.out.println("DONE WITH UP CASE");
                                 break;
                             case SELECT:
-                                APPS[currentMenu].run(ilcd,button);
+                                APPS[currentMenu].run(ilcd);
                                 inApp = true;
                                 break;
                             default:

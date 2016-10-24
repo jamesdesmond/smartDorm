@@ -24,4 +24,8 @@ public class showIP implements LCDApps {
         ilcd.clear();
         ilcd.setText("IP Address:\n" + getIP());
     }
+    public void run (ILCD ilcd) throws IOException {
+        ilcd.clear();
+        ilcd.setText("IP Address:\n" + getIP());
+    }
 }
