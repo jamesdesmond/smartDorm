@@ -18,7 +18,7 @@ public class Enums {
     public enum WeatherInfo {
         TODAY (0),
         HIGH_TEMP (1),
-        LOW_TEMP (19);
+        LOW_TEMP (18);
         private int index;
         WeatherInfo(int index) {
             this.index = index;
