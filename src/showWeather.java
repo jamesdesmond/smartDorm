@@ -109,7 +109,7 @@ class WeatherSixDay implements WeatherApps {
         return "6 Day Forecast";
     }
     public String toString() {
-        String[] daysOfTheWeek = new String[] {"S","M","T","W","T","F","S","S","M","T","W","T","F","S"};
+        String[] daysOfTheWeek = new String[] {"M","T","W","T","F","S","S","M","T","W","T","F","S","S"};
         String[] dayFirstLetter = new String[6];
         @SuppressWarnings("deprecation") int startDay = Calendar.getInstance().getTime().getDay();
         System.out.println("startDay: " + startDay);

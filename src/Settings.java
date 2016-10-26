@@ -9,7 +9,7 @@ import java.io.IOException;
  * Created by james on 10/26/16.
  */
 public class Settings implements LCDApps {
-    private static final Color[] COLORS = new Color[] {Color.RED,Color.BLUE,Color.GREEN,Color.TEAL,Color.VIOLET,Color.WHITE,Color.YELLOW,Color.OFF,Color.ON};
+    private static final Color[] COLORS = new Color[] {Color.RED,Color.GREEN};
     private int currentMenu;
     public Settings() {
         currentMenu = -1;
