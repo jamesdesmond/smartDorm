@@ -16,13 +16,11 @@ public class Sleep implements LCDApps {
 
     @Override
     public void run(ILCD ilcd, Button button) throws IOException {
-        if(button == Button.SELECT) {
-            ilcd.setBacklight(Color.OFF);
-        }
+        //do nothing
     }
 
     @Override
     public void run(ILCD ilcd) throws IOException {
-        ilcd.setText("Press Select to\nSleep Display");
+        ilcd.setBacklight(Color.OFF);
     }
 }
