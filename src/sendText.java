@@ -13,12 +13,12 @@ public class sendText implements LCDApps {
     private static final String[] messages = {"Test","Let me know when\nyou're back","I need the room\nfor a little bit","Staying at Aly's\ntonight ./?","Going out to\nskate"}; //Remember that its a 16x2 display
     public sendText() {
         this.person = Enums.People.JAMES;
-        currentMenu = 0;
+        currentMenu = -1;
     }
 
     public sendText(Enums.People person) {
         this.person = person;
-        currentMenu = 0;
+        currentMenu = -1;
     };
 
     private  void sendText(String address, String message) {

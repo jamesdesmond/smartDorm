@@ -1,7 +1,6 @@
-package smartDorm;
-
 import se.hirt.pi.adafruitlcd.Button;
 import se.hirt.pi.adafruitlcd.ILCD;
+import smartDorm.LCDApps;
 
 import java.io.IOException;
 import java.text.ParseException;
