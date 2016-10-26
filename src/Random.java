@@ -78,7 +78,7 @@ class RollADie implements RandomApps {
 
     @Override
     public String run() {
-        double random = Math.random();
+        double random = Math.random() * 100;
         if (random < 16.6) {
             return "1";
         }
