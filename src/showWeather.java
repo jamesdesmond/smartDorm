@@ -21,7 +21,7 @@ public class showWeather implements LCDApps {
     private static final WeatherApps[] WEATHER_APPS = new WeatherApps[] {new  WeatherMainScreen(),new WeatherSixDay()};
     private int currentMenu;
     public showWeather(){
-        currentMenu = -1;
+        currentMenu = 0;
     };
     private void menu(ILCD ilcd,Button button) throws IOException {
         ilcd.setText(WEATHER_APPS[0].toString());
@@ -45,7 +45,6 @@ public class showWeather implements LCDApps {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        //ilcd.clear();
     }
     @Override
     public String getName() {
