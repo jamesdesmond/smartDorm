@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class Runner {
     private  static final LCDApps[] APPS = new LCDApps[]{
-            new showWeather(),new sendText(Enums.People.CARTER),new sendText(Enums.People.JAMES),new showIP(),new Random(),new Settings()
+            new showWeather(),new sendText(Enums.People.CARTER),new sendText(Enums.People.JAMES),new showIP(),new Random(),new Settings(),new Sleep()
     };
     private boolean inApp;
     private int currentMenu;
@@ -74,6 +74,9 @@ public class Runner {
                     } else {
                         if (button == Button.UP || button == Button.DOWN) {
                             inApp = false;
+                            if (ilcd.getBacklight() == Color.OFF) {
+                                ilcd.setBacklight(Color.RED);
+                            }
                             ilcd.clear();
                             ilcd.setText(currentMenu + 1 + ".)\n" + APPS[currentMenu].getName());
                         } else {

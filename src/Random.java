@@ -24,13 +24,13 @@ public class Random implements LCDApps{
                     currentMenu++;
                     currentMenu = (currentMenu > RANDOM_APPS.length - 1) ? 0 : currentMenu;
                     ilcd.clear();
-                    ilcd.setText(RANDOM_APPS[currentMenu].toString());
+                    ilcd.setText(RANDOM_APPS[currentMenu].getName());
                     break;
                 case LEFT:
                     currentMenu--;
                     currentMenu = (currentMenu < 0) ? RANDOM_APPS.length - 1 : currentMenu;
                     ilcd.clear();
-                    ilcd.setText(RANDOM_APPS[currentMenu].toString());
+                    ilcd.setText(RANDOM_APPS[currentMenu].getName());
                     break;
                 case SELECT:
                     ilcd.clear();
