@@ -16,7 +16,6 @@ public class Sleep implements LCDApps {
 
     @Override
     public void run(ILCD ilcd, Button button) throws IOException {
-        //do nothing
     }
 
     @Override
