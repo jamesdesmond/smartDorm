@@ -22,7 +22,6 @@ public class Runner {
     }
     private void menu(ILCD ilcd) throws IOException {
         ilcd.setBacklight(Color.RED);
-        ilcd.setText("This is the \n start screen");
         ilcd.clear();
         ilcd.setText(1 + ".)\n" +APPS[0].getName());
         ButtonPressedObserver observer = new ButtonPressedObserver(ilcd);
